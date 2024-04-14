@@ -1,0 +1,6 @@
+ApplicationContextAware es otra interface opcional. Es muy parecida a la de BeanFactory aware, pues mantiene la misma
+lógica de negocio y funcionalidad. La única diferencia es que este será útil para cuando estemos usando el 
+ApplicationContext y no el BeanFactory.
+Pero la funcionalidad será la misma, implementará un método setter que se ejecutará después de populate properties, y esto
+permitirá que le Bean sea conciente de su SpringContainer / ApplicationContext. Así podremos crear métodos informativos por
+ejemplo, donde queramos incluir datos sobre el applicationContext.

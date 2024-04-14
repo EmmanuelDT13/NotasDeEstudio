@@ -1,0 +1,6 @@
+Como bien sabemos, la authentication y authorization son dos cosas muy diferentes cuando hablamos de spring security.
+Previamente ya estuvimos trabajando con la authentication mediante la creación del token, el regreso del token en la
+respuesta del registro y del login, y el la validación de este token.
+Pues bien, la para que nosotros seamos capaces de proteger ciertos endpoints y reservarlos únicamente para ciertos usuarios
+que contengan cierto rol o autoridad en específico, es necesario que recurramos a las interfaces, objetos y configuraciones
+que JWT nos ofrece para la autorización de permisos.

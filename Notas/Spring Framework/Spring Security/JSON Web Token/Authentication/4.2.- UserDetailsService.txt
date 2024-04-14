@@ -1,0 +1,23 @@
+Para crear este UserDetailsService, vamos a seguir una serie de pasos.
+
+1.- Si es que no la tenemos, vamos a generar nuesta entidad User, a la cual le podemos añadir todas las propiedades que
+    deseemos. Quizá nombre, nombre de usuario, correo, password, etc. Aquí lo importante es que le reservemos una columna
+    extra llamada ROL (puede ser ACMON, Vendedor, Cliente, etc). Cada rol lo tenemos que configurar para que tenga sus
+    propios permisos, pero eso lo podemos obtener fácilmente haciendo join con otra tabla de permisos, en la cual el ID del
+    rol sea solo la llave foránea y con ellos extraer todos los permisos del usuario.
+
+2.- Una vez añadimos la propiedad ROL, procederemos a implementar la interface UserDetails en nuestra clase User, y vamos
+    a añadir todos los métodos que nos proporciona esta interface.
+    Vamos a ir sobreescribiendo los métodos que nos proporciona, y también añadiremos los getters y setters para futuras
+    configuraciones. Aquí será importante que, al sobreescribir el cuerpo del método GetAuthorities, tomemos todos los
+    permisos que el usuario tiene gracias a su rol, y mediante una iteración, creemos un objeto de tipo
+    SimpleGranthedAuthority por cada uno, así consolidaremos los permisos que este usuario tiene.
+
+3.- Por último, crearemos la clase UserDetailsServiceImpl, en la cual podremos crear todos los métodos que queremos para
+    gestión de usuarios, pero lo más importante será que implementemos la interface UserDetailsService, y sobreescribamos
+    su método loadUserByUsername, el cual únicamente llamará a nuestro JpaRepository y nos devolverá el User. No nos
+    olvidemos de crearle ese método a nuestro Repository, ya que por defecto no lo tiene.
+
+4.- Por último, convertimos esta clase UserDetailsService en un Bean y la utilizaremos para setear nuestro objeto de tipo
+    AuthenticationProvider.
+

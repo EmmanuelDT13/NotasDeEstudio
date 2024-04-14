@@ -1,0 +1,22 @@
+Después de haber creado nuestra Key basándonos en los Bytes de la contraseña, ahora sí procedemos a crear nuestro Token.
+Podemos crear un método generateToken, el cual contendrá las siguientes características:
+
+1.- Recibirá un objeto de tipo UserDetails (Nuestra entidad User implementa UserDetails, así que ya lo tenemos), 
+    también recibirá un Map<String, Object>. Y retornará un String, el cual será nuestro Token convertido a String.
+
+2.- Mediante el constructor Jwts.Builder(), vamos a comenzar a definir los claims, el header y la firma.
+
+3.- Mediante el método setClaims, vamos a añadirle los datos de nuestro usuario, como nombre, username, correo, etc.
+    El método recibe un Map<String, Object>, así que vamos a crearlo para después pasárselo como parámetro. Este mapa
+    contendrá claims relacionados al usuario como nombre, username, correo, etc.
+    Posteriormente estableceremos setSubject(elNombreDeUsuario), setIssuedAt(fechaActual), 
+    setExpiration(fechaDeExpiracion). Seteando esto, ya tendremos listos los claims de nuestro token.
+
+4.- Mediante el método setHeaderParam, vamos a setear con clave valor nuestro tipo de token, para ello únicamente
+    colocaremos como clave: "TYP" y como valor: "JWT". También podemos lograr esto a través de las constantes estáticas
+    que nos ofrece el objeto Header.
+
+5.- Mediante signWith, vamos a establecer tanto nuestra llave como el algoritmo que utilizaremos para firmar el token.
+    Para la Key, simplemente llamaremos el método generateKey, el cual previamente creamos. Y el algoritmo más usado y 
+    recomendado actualmente para firmar es: SignatureAlgorithm.HS256. 
+    Por último, llamaremos al método compact() para finalizar la creación del token y lo retornamos.

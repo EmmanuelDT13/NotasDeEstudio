@@ -1,0 +1,10 @@
+Un JSON Web Token es lo que nos permitirá autentificarnos en aplicaciones de stateless. El token contendrá todos los datos
+e información necesaria para autorizar el acceso al usuario de ciertos recursos.
+El JSON Web Token se compone de tres elementos principales:
+
+1.- Headers: Aquí es donde se especificará el tipo de token y el algoritmo de firma que vamos a utilizar
+2.- Payload: Aquí es donde añadiremos los claims (datos) acerca del usuario en cuestión. Por ejemplo su nombre, su id de
+    usuario, la hora exacta en la que realizó la petición, etc.
+3.- Firma: La firma es el aspecto más difícil de vulnerar, puesto que este tercer componente se obtiene mezclando el
+    header, el payload y la clave secreta establecida por la aplicación. Por lo tanto es muy importante que mantengamos
+    segura esta clave secreta, ya que esta nos permitirá tanto codificar como decodificar en su totalidad los JWT.

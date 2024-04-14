@@ -1,0 +1,14 @@
+El método DELETE nos ofrece solo una variante, la cual es a secas delete. Tomemos en cuenta que este método es void, por
+lo tanto, no vamos a especificar el tipo de respuesta que deseamos obtener.
+A continuación se muestran las formas que tenemos para invocar a este método:
+
+
+1.- template.delete("http://localhost:8080");
+    //Aquí no especificamos ningún cuerpo de petición ni id, simplemente llamamos al métod delete a secas.
+
+2.- template.delete("http://localhost:8080/{idClient}", 1);
+    //Aquí colocaremos el url con una variable y al final asignamos el valor a esta misma.
+
+3.- template.delete("http://localhost:8080/{idClient}/{idVendedor}", HashMap);
+    //Aquí estamos tanto el URL que acepta dos variables. Posteriormente asignamos el HashMap que las contiene con
+      clave-valor.

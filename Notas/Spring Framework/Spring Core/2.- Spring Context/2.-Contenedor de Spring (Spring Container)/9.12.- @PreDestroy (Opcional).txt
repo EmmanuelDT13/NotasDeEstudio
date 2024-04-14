@@ -1,0 +1,3 @@
+Una alternativa a la interface DisposableBean, es la etiqueta @PreDestroy, la cual cumple con una funcionalidad similar,
+puesto que vamos a crear un método, después le pondremos la anotación @PreDestroy, y automáticamente se mandará llamar
+ese método cuando el Bean esté a punto de morir.

@@ -1,0 +1,14 @@
+A partir de aquí, vamos a estar trabajando en el proceso de creación de un usuario de tipo customer en nuestra aplicación.
+Este usuario tendrá los privilegios mínimos como lectura de productos, y además se le permitirá a cualquier persona
+registrarse bajo este rol; es decir La vista y el endpoint designados para este flujo no estarán protegidos.
+
+Para realizar este proceso necesitaremos:
+
+1.- Una interface de tipo service con el método de crear usuario (ya la tenemos).
+
+2.- Una interface con método encargado de Autentificar al usuario recién creado (esto para que no tenga que volver a 
+    logearse al momento de crear su cuenta, sino que en automático se logee una vez creada la cuenta).
+
+3.- Una interface que se encargará de crear tokens tomando como parámetro objeto implementación de UserDetails.
+
+4.- Nuestro controlador que expondrá los endpoints de creación de usuarios.

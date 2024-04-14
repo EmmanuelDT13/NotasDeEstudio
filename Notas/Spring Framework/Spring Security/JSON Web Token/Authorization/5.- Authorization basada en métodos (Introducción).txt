@@ -1,0 +1,10 @@
+Previamente ya vimos la autorización basada en coincidencias http, la cual nos permitirá añadir nuestras configuraciones
+en el httpSecurity perteneciente a la petición.
+Sin embargo, la autorización basada en métodos es ligeramente distinta debido a que ahora vamos a utilizar métodos y 
+anotaciones para establecer nuestras configuraciones de autorización.
+Para lograrlo vamos a necesitar lo siguiente:
+
+1.- Vamos a ir a nuestra clase donde HttpSecurityConfig, que es donde tenemos nuestro security filter chain y le vamos a
+    colocar @EnableMethodSecurity junto a @Configuration. Y además vamos a colocar entre paréntesis: prePostEnabled=true.
+    Al realizar esto, estamos declarando que se habilitarán las anotaciones @PreAuthorize y @PostAuthorize en nuestra
+    aplicación.

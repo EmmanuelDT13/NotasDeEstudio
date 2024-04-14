@@ -1,0 +1,17 @@
+git init .	//Te crea un nuevo repositorio en la carpeta donde te encuentras
+rm -rf .git	//Eliminas el repositorio existente
+
+
+git status	//Te muestra todos los archivos que han sido modificados.
+git add		//Te permite guardar todos los cambios que han recibido tus archivos.
+git add -A	//Guarda todos los archivos modificados. Ya no tienes que añadirlos uno por uno.
+git rm -r --cached .	//Elimina todo lo que fue añadido con git add
+git restore	//Te permite restaurar un archivo a antes de ser modificado.
+
+
+git commit -m "Mensaje"	//Te crea un commit considerando todos los cambios realizados.
+git commit --amend	//Te permite modificar el commit más reciente sin crear uno nuevo.
+	git commit -amend -m "Nuevo mensaje"
+	git add nuevo archivo.java -> git comit -amend	//Aquí estás añadiendo un nuevo archivo al último commit.
+git log		//Te permite ver todos los commits que se han realizado junto a sus mensajes.
+git show 38jwdjdu83dj	//Te permite ver específicamente todos los cambios de un commit. Debes proporcionarle el commit id

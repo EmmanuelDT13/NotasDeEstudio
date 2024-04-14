@@ -1,0 +1,22 @@
+Aquí es donde vamos a crear nuestro primer filtro personalizado, el cual vamos a añadir posteriormente a nuestra 
+SecurityFilterChain con el objetivo de que realice nuestras validaciones.
+Para crear un filtro de seguridad, tenemos muchas posibles configuraciones. Por lo tanto, en esta ocasión vamos a crear
+uno específicamente para que, cuando el usuario desee acceder a un recurso protegido y mande su token en la petición,
+este filtro tome el token, verifique su validez y entonces le de acceso al usuario.
+Aquí es donde vamos a crear una nueva clase de configuración, a la cual podemos llamar JwtAuthenticationFilter. Esta clase
+tendrá las siguientes características:
+
+1.- Implementará la interface OncePerRequestFilter. Vamos a implementar el método que añade.
+
+2.- Dentro de su método, vamos a realizar una serie de procesos:
+
+	-Del request de la petición, extraemos el Header Authorization.
+	-Verificamos que este Authorization no venga vacío y que empiece con "Bearer"
+	-Del Authorization, extraemos el token mediante un .split("")[2]. Esto para eliminar el "Bearer " junto al token.
+	-Extraemos el subject de nuestro token. Para ello utilizaremos el método creado anteriormente en TokenService.
+	-Creamos un objeto tipo UsernamePasswordAuthenticationToken, añadiendo el username, password y usuario (Hay que
+         llamar al usuario de la base de datos con nuestro DAO), como parámetros de su constructor.
+	-Al contexto de seguridad de nuestra aplicación, le seteamos este objeto Authentication.
+	-Llamamos a filterChain.doFilter(request,response) para que continúe con el proceso después de realizar lo anterior
+
+3.- Hemos terminado nuestro filtro :) Ahora solo falta añadirlo a nuestro security filter chain para que lo tome en cuenta.

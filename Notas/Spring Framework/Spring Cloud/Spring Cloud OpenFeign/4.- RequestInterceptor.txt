@@ -1,0 +1,23 @@
+Request Intercepor es una interface que nos proporcionará la posibilidad de que, antes de que nuestras peticiones sean
+mandadas, definiremos un método que primero realizará ciertas acciones que nosotros configuraremos, y después de ello,
+ahora sí dejará ir la petición. Esta interface nos permitirá cosas como definir headers, definir tokens, etc.
+
+Para poder configurar un request interceptor, tenemos por lo menos dos alternativas. Una de ellas será crear un @Bean de
+alguno de los objetos ya preestablecidos por OpenFeign para diferentes circunstancias. 
+Y la segunda alternativa será crear nuestro propio objeto implementando la interface RequestInterceptor, la cual nos
+incluirá un método llamado apply, y en él realizaremos nuestras configuraciones.
+
+1.- Un ejemplo de un objeto ya creado es el BasicAuthRequestInterceptor. Este objeto nos pedirá dos parámetros para poder
+    instanciarlo, los cuales serán username y password. Entonces lo que haremos será configurar un @Bean y construirlo así.
+    Entonces, cada vez que el cliente Feign lance la petición, este requestInterceptor añadirá headers con nuestro
+    username y contraseña encriptados.
+
+2.- La otra opción es crear nuestro propio objeto con la interface, ahí mismo también vamos a ir configurando todo lo que
+    necesitemos, y ya después volvemos a hacer eso del @Bean.
+
+3.- Por último y no menos importante. Vamos a ir a nuestra clase donde tenemos @FeignClient y entre los paréntesis de la
+    anotación, añadiremos un nuevo parámetro, el cual será configuration=LaClaseDondeCreamosElBean.class 
+    Nuestra anotación debería lucir así: 
+    @FeignClient(name="juanitoCliente", url="http://localhost:8083/vehiculo", configuration=FeignConfig.class)
+    OJO, al colocar esto de configuration, estamos afectando a todos los métodos contenidos en esta clase, para que tengas
+    cuidado si tu intención es que no todas las peticiones sean interceptadas e intervenidas.

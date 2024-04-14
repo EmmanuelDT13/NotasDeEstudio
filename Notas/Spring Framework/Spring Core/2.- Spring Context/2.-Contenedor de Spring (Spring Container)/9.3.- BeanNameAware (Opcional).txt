@@ -1,0 +1,11 @@
+ESTE PROCESO ES OPCIONAL.
+
+BeanNameAware es el proceso donde al Bean se le settea su propio nombre como propiedad.
+¿Qué significa lo anterior? Todos los Beans reciben un nombre, ya sea que nosotros le definamos al nombre cuando lo
+estamos configurando o que Spring se lo asgine si nosotros no lo hicimos. Aquí la cosa es que los Beans no son concientes
+de que tienen un nombre, y eso no está mal, la mayoría de veces no será necesario que el Bean tenga su propio nombre
+como propiedad.
+Sin embargo, si nosotros implementamos la interface: BeanNameAware, esta nos añadirá un método setter que definirá su
+nombre, de esta manera podríamos realizar ciertos procesos donde nos gustaría incluír el nombre del bean como dato
+informativo.
+Este nombre será seteado por el contenedor de Spring automáticamente después del Populate Properties.

@@ -1,0 +1,14 @@
+El método Patch, a diferencia de put, sí nos va a retornar un objeto después de realizar la solicitud. Sin embargo, al igual
+que put, solamente cuenta con un tipo de método, el cual es patchForObject.
+
+A continuación se explican las tres maneras que tenemos para llenar los parámetros y llamar a este método:
+
+1.- patchForObject("http://localhost...", objectoBody, ResponseClass.class);
+    //Aqui proporcionaremos el String URL, el objeto que mandaremos como payload y la clase de la respuesta que recibimos.
+
+2.- patchForObject("http://localhost:8080/{idCliente}", objectPayload, Response.class, 1);
+    //Aquí proporcionamos URL, payload, clase de respuesta y asignamos el valor a la variable de la url.
+
+3.- patchForObject("http://localhost:8080/{idCliente}/{idVendedor}", objectPayload, Response.class, HashMap);
+    //Aquí estamos otorgando el url con dos variables, payload, clase de respuesta y HashMap que contiene las variables de
+      la URL mediante clave-valor.

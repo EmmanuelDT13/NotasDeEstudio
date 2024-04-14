@@ -1,0 +1,35 @@
+Este BeanScope hace referencia a que, cada vez que se llame a un Bean de nuestro contexto o contenedor de spring, se va
+a crear una nueva y diferente instancia de las que ya se habían creado. Los Beans que estemos utilizando nunca serán los
+mismos ni tendrán estado, a diferencia del BeanScope singleton.
+
+El uso de este scope o ámbito puede tener como ventajas de hecho de que vamos a estar creando instancias frescas y nuevas
+cada vez que requiramos el Bean a nuestro contenedor. Sin embargo, hay que tomar en cuenta de que el uso de este
+scope podría implicar varios desafíos como los siguientes:
+
+- Estos beans no son automáticamente administrados por el contenedor de spring. Lo único que hace spring es crearlos y de
+  ahí tu te tienes que encargar de destruirlos para liberar los recursos y memoria cuando ya no los necesites. Imaginate
+  un Bean que maneje conexiones a bases de datos y que tengas como 20 al mismo tiempo. Debes de ser muy cuidadoso de 
+  eliminar los recursos cada que desocupes alguno para que no se alente la aplicación. Liberar los recursos podría ser
+  por ejemplo, crear un método que convierta a null todas las dependencias dentro de mi Bean. Si hay buffers, aplicar su
+  método close(). Y ya por último, sería buena idea cerrar el contexto de nuestra aplicación así:
+
+	((ConfigurableApplicationContext) applicationContext).close();
+También sería bueno implementar la interface DisposableBean, la cual nos añadirá el método destroy, en el cual vamos a 
+establecer todo el proceso de limpieza de recursos.
+
+Y como último tip, también podríamos convertir nuestro bean en null, así liberamos por último los recursos:
+
+my_bean = null;
+
+Por último, para definir un bean como prototype, haremos lo siguiente:
+
+1.- En xml:       <bean id="persona" class="com.core.service.serviceImpl.Persona" scope="prototype">
+
+2.- Mediante anotaciones: 
+
+@Bean
+@Scope("prototype")
+public String MiBeanPrototype {
+
+    // Contenido del bean...
+}

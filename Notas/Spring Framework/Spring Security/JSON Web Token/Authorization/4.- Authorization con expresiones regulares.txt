@@ -1,0 +1,10 @@
+Una herramienta muy útil a la hora de configurar nuestra autorizaciones son las expresiones regulares. Estas nos van
+a servir para establecer nuestros endpoints de una manera más especial, sobre todo en casos donde queramos establecer
+estrictamente ciertos valores mediantes las expresiones regulares.
+
+A continuación te muestro un ejemplo de una autorización con expresiones regulares y roles.
+
+authorizeHttpRequests.requestMatchers(RegexRequestMatcher.regexMatcher(HttpMethod.GET, "/categories/[0-9]*"))
+					.hasAnyRole(ROLE.ACMON.name(), ROLE.ASSISTANT_ACMON.name(), ROLE.CUSTOMER.name());
+
+Cabe destacar que esta herramienta también se puede utilizar con los permisos o authorizations.

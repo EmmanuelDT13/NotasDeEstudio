@@ -1,0 +1,30 @@
+En la arquitectura de microservicios, los FallBack nos permitirán añadir tolerancia a los fallos en el caso de que la
+llamada a un servcio falle, así permitiremos que nuestra aplicación no caiga o se produzca un comportamiento inesperado.
+El comportamiento que los FallBack nos proporciona, es que, en el caso de que se produzca un error, el FallBack nos 
+permitirá configurar una respuesta alternativa o un comportamiento alternativo, en el cual decidiremos qué rumbo tomará
+la aplicación en caso del fallo.
+
+Configurar un FallBack no es tan complicado, vamos a seguir la siguiente serie de pasos:
+
+1.- Añadiremos la dependencia de resilience4j:
+
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+		</dependency>
+
+2.- Posteriormente habilitaremos el patrón circuitbreaker en nuestro archivo de configuraciones. Así:
+    spring.cloud.openfeign.circuitbreaker.enabled=true
+
+3.- Después, crearemos una clase que será nuestro FallBack. Esta clase va a implementar a nuestra Interface cliente de 
+    OpenFeign. Entonces implementaremos los métodos y los sobreescribiremos según la lógica que deseemos. Si queremos
+    Arrojar un objeto alternativo como respuesta o si queremos lanzar una excepción, ya decidiremos qué proceso ejecutar.
+
+4.- Posteriormente crearemos un @Bean que nos devuelva este objeto.
+
+5.- Por último, iremos a nuestro cliente openfeign y en el @EnableClient, vamos a añadir un parámetro llamado "fallback",
+    en el cual será equivalente a nuestra clase Fallback.
+    Esta debería lucir algo así:
+    @FeignClient(fallback=MyFallBack.class)
+
+

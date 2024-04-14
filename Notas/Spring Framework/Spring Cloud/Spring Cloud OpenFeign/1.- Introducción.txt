@@ -1,0 +1,5 @@
+Spring Cloud OpenFign es la alternativa más aceptada por Spring Cloud a la hora de consumir microservicios o apis rest
+desde una aplicación spring-spring boot.
+Hay que considerar que OpenFeign consume los servicios de manera síncrona al igual que RestTemplate. Esto significa que
+mientras está realizando la petición, se detiene el funcionamiento de la aplicación hasta que se concrete.
+Dicho esto, comencemos con los temas principales de OpenFeign :)

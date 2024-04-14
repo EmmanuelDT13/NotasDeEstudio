@@ -1,0 +1,22 @@
+Un SecutityFilterChain, como su nombre bien lo indica, es una cadena de seguridad que el AuthenticationProvider de 
+SpringSecurity utilizará para temas de autentificación de usuarios.
+Podemos crear tantos SecurityFilterChain querramos y necesitemos.
+
+Llegado este punto, vamos a crear el primero, lo crearemos en nuestra clase de @EnableWebSecurity, será algo así:
+
+1.- Crearemos un @Bean que recibe un HttpSecurity y retorna una implementación de SecurityFilterChain.
+
+2.- El HttpSecurity lo utilizaremos como builder para crear nuestro filterchain. Para crearlo seguiremos los siguientes
+    pasos.
+
+3.- Mediante el método cstf, utilizaremos una expresión lambda para deshabilitar esta protección.
+4.- Mediante el método sessionManagement, utilizaremos una expresión lambda para configurar que la sessionCreationPolicy
+    será mediante SessionCreationPolicy.STATELESS (Así diremos que nuestra app será sin estado, es decir, mediante token).
+5.- Mediante el método authenticationProvider, inyectaremos el Bean creado anteriormente de tipo AuthenticationProvider.
+6.- Mediante el método authorizeHttpRequests, vamos a usar una expresión lambda, y, en el cuerpo de la expresión, vamos
+    a ir definiendo nuestros diferentes endpoints abiertos al público. Esto mediante el método requestMatchers, dentro del
+    cual vamos a ir colocando el verbo http que permitiremos, el path que permitiremos y por último llamamos el método
+    permitAll().
+7.- Después de establecer nuestros requestMatchers, estableceremos un authorizeHttpRequests con su método anyRequest y con
+    el método authenticated. Así habremos establecido que cualquier otro método necesitará autentificación para acceder.
+8.- Por último, llamamos al método build() y este será el SecurityFilterChain que devolveremos.

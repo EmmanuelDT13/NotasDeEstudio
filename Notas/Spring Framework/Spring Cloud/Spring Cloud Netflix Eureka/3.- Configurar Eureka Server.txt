@@ -1,0 +1,27 @@
+El Eureka server será un microservicio Spring Boot por sí solo, así que debemos crearlo añadiendole la dependencia llamada
+Eureka Server. Será la siguiente:
+
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+	</dependency>
+
+Posteriormente vamos a seguir los siguientes pasos que nos permitirán configurarlo:
+
+1.- Iremos a la clase principal de nuestro MS. Entonces, debajo de la anotación @SpringBootApplicacion, vamos a colocar la
+    siguiente: @EnableEurekaServer. Esta anotación nos permitirá que, cuando Spring Inicie la aplicación, la convierta en
+    un servidor de Eureka, y así le brinde los comportamientos necesarios para registro de microservicios.
+
+2.- Posteriormente, realizaremos una configuración básica que nos permitirá habilitar nuestro servidor para empezar a
+    aceptar registros:
+
+server:
+  port: 8761	//Aquí definimos el puerto 8761 (Necesario para levantar el servidor)
+eureka:
+  client:
+    fetch-registry: false	//Aquí definimos que el servicio no intentará tomar la información del Eureka Server
+    register-with-eureka: false		//Definimos que el servicio no se registrará en Eureka Server
+
+
+Estas dos últimas configuraciones son muy importantes y las estamos configurando bajo la siguiente lógica:
+¿Cómo carajos el servidor eureka va a registrarse a sí mismo y obtener la información de sí mismo? Por eso colocamos false.

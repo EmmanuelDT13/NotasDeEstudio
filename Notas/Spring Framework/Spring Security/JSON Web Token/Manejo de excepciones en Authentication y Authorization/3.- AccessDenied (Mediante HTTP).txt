@@ -1,0 +1,18 @@
+En la excepción 403, de access denied, si queremos manejarla cuando estamos autorizando con las coincidencias http, vamos
+a necesitar crear un @Bean que será Handler de la excepción.
+Para esto necesitaremos seguir los siguientes pasos:
+
+1.- Creamos un componente que implementará la interface AccessDeniedHandler e incluiremos su método.
+
+2.- Comenzaremos a setear el response.setStatus(401) y response.setContentType("application/json").
+
+3.- Posteriormente crearemos una instancia de nuestro responseDtoError, el cual contendrá toda la información que deseemos
+    a la hora de que se produzca la excepción.
+
+4.- Posteriormente convertiremos este dto en un JSON. Lo lograremos de la siguiente manera:
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.registerModule(new JavaTimeModule());
+		String errorReponse = objectMapper.writer().writeValueAsString(error);
+
+5.- Por último, escribimos nuestro json en el response mediante response.getWriter().write(errorReponse)

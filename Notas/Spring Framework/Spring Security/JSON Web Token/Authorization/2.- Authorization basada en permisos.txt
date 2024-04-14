@@ -1,0 +1,21 @@
+Para que nosotros seamos capaces de configurar las authorizations en nuestra aplicación, será necesario ir a nuestro 
+SecurityFilterChain, ya que en este bean es donde vamos a colocar los endpoints que queremos proteger, así como el permiso
+que el usuario deberá tener para ser capas de acceder a este mismo.
+
+Lo que haremos será situarnos en el métod authorizeHttpRequests que previamente habíamos creado al momento de configurar
+nuestro filter chain. Dentro de este método vamos a ir añadiendo todos los requestMatchers que deseemos configurar. Cada
+requestMatcher va a representar un endpoint o una serie de endpoints a los que les configuraremos los permisos.
+
+Por cada requestMatchers que deemos configurar, haremos lo siguiente:
+
+authorizeHttpRequests.requestMatchers(HttpMethod.GET, "/products").hasAuthority(Authority)
+
+//En la anterior línea de código, estamos configurando el método http que corresponderá a esta configurarción.
+//Posteriormente estamos definiendo el endpoint al que corresponderá esta configuración.
+//Y por último, establecemos la configuración, la cuál será hasAuthority. Este método significa que el usuario deberá tener
+  esa autoridad para ser capaz de acceder al endpoint protegido.
+
+Asímismo deberemos seguir con todos los requestMatchers que deseemos configurar para cada permiso.
+Recordemos que también tenemos estas opciones:
+	authorizeHttpRequests.requestMatchers(HttpMethod.POST, "/auth/**").permitAll(); //Para permitir a todos
+	authorizeHttpRequests.anyRequest().authenticated();  //Para permitir a todos los usuarios logeados.

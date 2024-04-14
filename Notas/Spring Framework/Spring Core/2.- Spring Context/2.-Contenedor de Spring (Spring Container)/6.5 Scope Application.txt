@@ -1,0 +1,23 @@
+Este scope es muy parecido a singleton, sobre todo porque ambos crean solamente un bean universal a lo largo de toda
+la vida del contenedor. En el caso de application, los beans configurados en este scope tienen estado y cada vez que sea
+llamado nos regresará la misma instancia.
+
+La diferencia entre singleton y application es que aplication opera a nivel serverContext, mientras que singleton opera
+a nivel applicationContext.
+
+Mientras que una aplicación puede tener muchos applicationContext al mismo tiempo, solamente puede existir un serverContext
+corriendo en nuestra aplicación, por lo tanto, el scope de application suele ser más estricto porque solamente creará
+un solo bean a lo largo de toda la aplicación, pero con singleton seremos capaces de crear diferentes instancias siempre
+y cuando lo hagamos con diferentes contenedores o applicationContext.
+
+Para implementar esta configuración seguiremos uno de los siguientes pasos:
+
+1.- Mediante xml: <bean id="miBeanDeApplication" class="paquete.MiBeanDeApplication" scope="application">
+
+2.- Mediante anotaciones: 
+
+@Component
+@Scope(ConfigurableBeanFactory.SCOPE_APPLICATION)
+public class MiBeanDeApplication {
+    // Código del bean
+}

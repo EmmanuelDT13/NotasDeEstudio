@@ -1,0 +1,2 @@
+Después de ejecutar los procesos anteriores, el Bean finalmente termina su ciclo de vida y termina siendo destruído
+y muriendo tristemente :(

@@ -1,0 +1,19 @@
+Para poder implementar spring security en nuestra aplicación, será necesario que añadamos la siguiente dependencia:
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+A continuación se explican los tres componentes base a la hora de trabajar con spring security:
+
+1.- DelegatingFilterProxy: Este componente es añadido por defecto gracias a Spring Security. La función de este objeto es
+    crear un puente entre el contexto de los servlets y el contexto de nuestra aplicación. Gracias a esta unión, podremos
+    añadir los filtros de seguridad necesarios para procesar nuestras solicitudes HTTP.
+
+2.- FilterChainProxy: Este componente trabaja mano a mano con DelegatingFilterProxy, es precisamente a quien se le va a
+    delegar la terea de administrar todos los filtros de la aplicación. Gracias al FilterChainProxy seremos capaces de
+    añadir nuestras propias cadenas de filtros de seguridad.
+
+3.- SecurityFilterChain: Esta será una cadena o lista de filtros que vamos a añadir a nuestra aplicación. Al implementarlo,
+    cada petición HTTP tendrá que pasar por esta lista de filtros para ser ejecutada.

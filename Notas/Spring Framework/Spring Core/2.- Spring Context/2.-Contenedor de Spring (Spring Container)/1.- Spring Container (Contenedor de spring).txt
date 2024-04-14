@@ -1,0 +1,7 @@
+Spring Container es la implementación que Spring realiza para inyección de dependencias e inversión de control.
+En spring container es donde vamos a configurar nuestros beans, los vamos a crear y también los vamos a inyectar en las
+clases que sea necesario. Aquí es donde entra el tema de inyección de dependencias, inversión de control, etc.
+Cuando escuchemos acerca del contenedor de spring, siempre se hará referencia a una de dos:
+
+1.- ApplicationContext
+2.- BeanFactory (Obsoleto)

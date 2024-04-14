@@ -1,0 +1,10 @@
+En este proceso, seremos capaces de crear un método que se ejecutará durante la destrucción del Bean. No nos confundamos,
+no es el mismo método que incluye DisposableBean, es diferente.
+
+Para añadirlo en nuestros Beans, tenemos dos alternativas:
+
+1.- Desde la anotación @Bean, de la siguiente manera: 	@Bean(destroyMethod="customDestroy")
+
+2.- Desde el XML, de la siguiente manera:
+
+	<bean id="miBean" class="paquete.de.MiBean" destroy-method="customDestroy"/>

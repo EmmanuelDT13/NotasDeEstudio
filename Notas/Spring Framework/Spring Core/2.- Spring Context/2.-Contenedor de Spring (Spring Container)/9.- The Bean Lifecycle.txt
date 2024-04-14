@@ -1,0 +1,4 @@
+El ciclo de vida de un Bean en spring son todas las fases que este seguirá desde su creación hasta su destrucción.
+Spring se encarga automáticamente de este proceso, sin embargo, nos ofrece varias opciones para personalizar o configurar
+este ciclo de vida según nuestras necesidades.
+Para ello tenemos interfaces y anotaciones que desempeñarán una tarea diferente.

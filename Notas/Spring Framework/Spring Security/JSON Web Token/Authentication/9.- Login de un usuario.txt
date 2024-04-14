@@ -1,0 +1,22 @@
+A este punto, el proceso donde se le autoriza el login o no al usuario es algo relativamente sencillo debido a que
+previamente ya configuramos los Beans necesarios para lograrlo.
+Para lograr un login, vamos a necesitar los siguientes beans:
+
+1.- El AuthenticationManager (Ya lo creamos)
+2.- El AthenticationProvider (Ya lo creamos)
+
+Una vez teniendo todos estos elementos, procederemos a crear un método en nuestro AuthenticationService, el cual será
+encargado del proceso de logeo de un usuario. Este método podríamos llamarlo login y tendrá las siguientes características:
+
+1.- Recibirá un LoginDtoRequest y retornará un UserDtoRequest.
+
+2.- Es necesario que creemos un objeto de tipo Authentication, este objeto encapsulará las credenciales del usuario y las
+    entregará al AuthenticationManager para que este las delegue al AuthenticationProvider y por fin sea procesada la
+    solicitud. Por lo tanto, instanciaremos primeramente un UsernamePasswordAuthenticationToken, esta es una 
+    implementación de Authentication que nos permitirá usar pass y contraseña para ello.
+
+3.- Posteriormente llamaremos a nuestro Bean AuthenticationManager en su método authenticate y le pasaremos como parámetro
+    nuestra authentication previamente creada (Este proceso será donde se valida si las credenciales son correctas o no).
+
+4.- Por último, ya podemos llamar a nuestro Service encargado de crear tokens, llamaremos a nuestro User del repository,
+    se lo pasamos como parámetro a nuestro TokenService junto a sus claims y listo, lo retornamos en el controller. 

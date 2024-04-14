@@ -1,0 +1,3 @@
+RestTemplate es una de las alternativas que tenemos para consumir api rest en aplicaciones Java Spring.
+Esta es la opción más antigua que tenemos para consumir apis, sin embargo aún existen muchas aplicaciones que implementan
+este método, así que de igual forma hay que aprenderlo.

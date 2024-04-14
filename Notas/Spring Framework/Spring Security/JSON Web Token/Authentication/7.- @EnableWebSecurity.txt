@@ -1,0 +1,6 @@
+Es el momento de crear nuestra clase de configuración @EnableWebSecurity con @Configuration. 
+Aquí es donde vamos a colocar nuestros @Beans y configuraciones más densas dentro de la seguridad de nuestra aplicación.
+Es muy importante tener esta clase creada, porque de lo contrario, Spring no habilitará la seguridad en nuestra
+aplicación ni tampoco ejecutará las configuraciones predeterminadas de seguridad. Así es es muy importante que la creemos.
+
+Más adelante vamos a ver qué Beans crearemos aquí.

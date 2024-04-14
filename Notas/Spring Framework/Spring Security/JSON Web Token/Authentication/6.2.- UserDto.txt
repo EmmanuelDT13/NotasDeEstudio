@@ -1,0 +1,13 @@
+En este punto, es necesario que comencemos a mapear nuestros dto tanto de request como de response de nuestra entidad
+User. En ambos casos seguiremos los siguientes procesos:
+
+1.- UserDtoRequest: Colocaremos todas las propiedad que deseemos que el usuario coloque a la hora de registrarse, como
+    por ejemplo correo, name, username, password, etc. No pediremos obviamente el rol, ya que ese lo estableceremos por
+    default en el backend.
+
+2.- UserDtoResponse: Aquí es donde la cosa de pone un poco más compleja, puesto que no solo regresaremos los datos de
+    identificación del usuario, sino que tambien no debemos olvidar añadir lo siguiente:
+
+	- Su id.
+	- Su token de autentificación. Gracias a esta propiedad, será posible iniciar sesión en cuanto cree la cuenta.
+	- Su rol. Así podremos establecerle sus filtros de seguridad según sus permisos.

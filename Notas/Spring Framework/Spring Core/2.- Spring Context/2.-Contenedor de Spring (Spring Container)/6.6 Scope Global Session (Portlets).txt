@@ -1,0 +1,16 @@
+El scope "globalSession" en Spring se utiliza específicamente en el contexto de aplicaciones web con soporte para portlets.
+ Este ámbito es similar al ámbito "session", pero está diseñado para gestionar el ciclo de vida de los beans en un ámbito 
+de sesión global en un entorno de portlet.
+
+El ámbito "globalSession" se utiliza cuando se necesita compartir datos entre varios portlets en una página y estos 
+portlets comparten la misma sesión global. Esto puede ser útil para mantener un estado coherente entre diferentes partes 
+de una interfaz de usuario compuesta por varios portlets.
+
+Es importante destacar que el ámbito "globalSession" es específico de entornos de portlets y puede no ser relevante para 
+aplicaciones web tradicionales que no utilicen esta tecnología. Su uso se recomienda principalmente en casos donde la 
+información debe ser compartida entre diferentes componentes en una página con portlets.
+
+
+
+
+

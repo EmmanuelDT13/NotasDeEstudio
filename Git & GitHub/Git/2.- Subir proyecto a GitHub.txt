@@ -1,0 +1,15 @@
+Para poder subir los cambios a nuestro repositorio GitHub, será necesario crear este repositorio en la plataforma.
+A continuación te enseño cómo hacer eso.
+
+1.- Irás al tu cuenta y le darás en crear repositorio. Estando ahí le vas a asignar nombre y lo configurarás.
+
+2.- Después de eso, irás a tu terminal git y añadirás ese orígen (repositorio) a tu repositorio local. Así lo reconocerá.
+
+3.- git remote add origin https://github.com/EmmanuelDT13/Nombre_De_Tu_Repositorio	//Este es el comando a ejecutar.
+
+4.- git branch -m "Nombre_De_Tu_Rama"	//Aquí estás asignándole una rama en particular a tu proyecto y sus cambios.
+
+5.- git push -u origin Main	//Aquí ya estás subiendo tus cambios al repositorio GitHub, en la rama Main que creaste.
+
+6.- git push	//Si previamente ya ejecutamos el anterior comando, ya no es necesario especificar cuál rama, puesto que
+		  Git va a inferir que se trata de la misma.

@@ -1,0 +1,11 @@
+Para poder trabajar con OpenFeign, será necesario que instalemos la dependencia spring cloud open feign a nuestro
+microservicio que consumirá la api rest.
+
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+
+Posteriormente, será necesario que vayamos a la clase principal de nuestro proyecto y añadamos la anotación:
+@EnableFeignClients, así Spring va a realizar todos los ajustes necesarios para que podamos consumir apis desde aquí.
+Si no deseamos añadir la anotación en la clase principal, basta con colocarla en una clase que contenga @Configuration.

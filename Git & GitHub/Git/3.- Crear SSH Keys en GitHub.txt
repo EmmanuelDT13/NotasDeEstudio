@@ -1,0 +1,11 @@
+Las llaves SSH nos permitirán asginarle seguridad a nuestra cuenta GitHub.
+
+1.- Iremos a configuración en nuestra cuenta e iremos al apartado SSH Keys.
+
+2.- Le daremos click en Generating SSH Keys.
+
+3.- Estando aquí, hacemos click en generar nueva ssh key. Esto nos va a proporcionar un comando que ejecutaremos en consola
+
+4.- ssh-keygen -t ed25519 -C "your_email@example.com"	//Este es el comando a ejecutar. Colocamos nuestro email verdadero.
+
+5.- 

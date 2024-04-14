@@ -1,0 +1,14 @@
+El método PUT solamente ofrece un tipo de método, el cual no regresará nada, es Void, por lo tanto, cuando llamamos el 
+método no necesitaremos especificar el tipo de clase que esperamos como respuesta.
+
+Estas son las tres posibles formas que tenemos para invocar el método put
+
+
+1.- template.put("http://localhost...", objectoBody);
+    //Aqui solamente proporcionaremos el String URL y el objeto que mandaremos como payload.
+
+2.- template.put("http://localhost:8080/{idClient}", objectoBody, 1);
+    //Aquí estamos especificando que la url cuenta con una variable, y como último parámetro colcamos el valor de esta.
+
+3.- template.put("http://localhost:8080/{idClient}/{idVendedor}", objetoBody, HashMap)
+    //Aquí estamos añadiendo más variables a nuestro url, las cuales llenamos al final con el HashMap mediante clave-valor.

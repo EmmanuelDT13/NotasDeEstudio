@@ -1,0 +1,5 @@
+InizializationBean es una interface que nos permitirá ejecutar un método después de Population Services y durante la
+inicialización del Bean.
+La diferencia con BeanPostProcesor es que esta interface se va a implementar en cada Bean al que queramos añadirle este
+método, es decir, no se implementará el método de manera global en todos los Beans.
+Únicamente vamos a necesitar implementar InitializingBean y sobreescribir el cuerpo del método implementado.

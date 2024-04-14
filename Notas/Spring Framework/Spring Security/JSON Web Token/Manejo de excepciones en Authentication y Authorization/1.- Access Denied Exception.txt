@@ -1,0 +1,4 @@
+Cuando nosostros intentamos acceder a un recurso que no está permitido para cierto usuarios con sus credenciales, si 
+estamos usando el authorization basada en métodos, se nos va a lanzar una excepción tipo: AccessDeniedException, la cual
+podemos manejar de una manera muy simple, lo único que tendremos que hacer es ir a nuestro RestControllerAdvice y 
+colocar un ExceptionHandler que nos permitra regresar una respuesta cuando esta excepción es lanzada.

@@ -1,0 +1,13 @@
+Previamente ya vimos cómo crear un filtro de seguridad en nuestra aplicación. Sin embargo, actualmente no está siendo
+tomado en cuenta debido a que no lo hemos vinculado a nuestra cadena de filtros de seguridad. Para lograr añadirlo, vamos
+a ir a nuestro Bean donde tenemos creada nuestra cadena y vamos a llamarle el siguiente método a nuestro objeto
+HttpSecurity:
+
+httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+OJO, Hay que inyectar en nuestra clase el bean de jwtAuthenticationFilter para que podamos añadirlo como primer parámetro.
+
+Y el segundo parámetro es el filtro al que antecederá nuestro filtro personalizado.
+
+Con esto, finalmente hemos sido autentificados al iniciar sesión y spring security al fin nos permitirá acceder a recursos
+reservados solo para usuarios autentificados. 

@@ -1,0 +1,26 @@
+Previamente estuvimos viendo sobre todo, la manera de crear Beans mediante el XML. Sin embargo, es importante mencionar
+que ese medio ya está obsoleto y no es muy recomendado debido a que hay maneras mucho más sencillas desde que aparecieron
+las anotaciones.
+
+A continuación, se muestran algunas etiquetas que nos permitirán crear Beans mediante anotaciones:
+
+@Component/@Component("nombreDelBean") -> Esta es la anotación más general. Si queremos que una clase sea un Bean, esta 
+					  anotación será útil.
+
+@Service/@Service("nombreDelBean") -> Esta anotación regularmente se usa en los beans que manejan la lógica de negocio de
+				      nuestra aplicación. Es más específico su uso pero el funcionamiento es el mismo.
+
+@Controller/@RestController -> Aquí es donde definiremos los endpoints de nuestra aplicación.
+
+@Bean/@Bean("nombreDelBean") -> Esta anotación es más específica. un @Bean regularmente es un objeto al que necesitamos
+				procesar antes de añadirlo al context de nuestra app. Por lo tanto, lo crearemos en una
+				clase de configuración, después le haremos sus modificaciones necesarias y lo retornamos
+				mediante el método en cuestión. Eso lo haremos así:
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public MiBean miBean() {
+        return new MiBean();
+    }
+}

@@ -1,0 +1,6 @@
+Es muy importante tomar en cuenta que, sea que queremos consumir una Api mediante método GET, POST, PUT, etc. Debemos
+tener mapeada una entidad que haga match con los mismos valores que la api nos está devolviendo. Ese es uno de los
+principales requsitos para poder usar correctamente RestTemplate.
+
+Además, es necesario que tengamos instalada en nuestra aplicación la dependencia Spring Web, pues esta es la que nos añade
+el objeto RestTemplate.

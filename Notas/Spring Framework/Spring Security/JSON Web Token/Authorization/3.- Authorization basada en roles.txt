@@ -1,0 +1,21 @@
+Resulta que spring security nos solo nos ofrece métodos para validar mediante permisos o authorities nuestras peticiones
+http. También nos ofrece la posibilidad de configurar que nuestros endpoints solo sean accesibles para usuarios con cierto
+rol en particular.
+Pues ahora vamos a analizar qué es lo que necesitamos para validar mediante roles nuestros endpoints.
+
+1.- Vamos a ir a nuestra entidad User (La cual implementa a UserDetails), y vamos a hacer una pequeña modificación en su
+    método getAuthorities. Lo único que haremos será añadirle un elemento más, el cual será el nombre de su rol y muy
+    importante, le vamos a concatenar a este nombre el prefijo "ROLE_". Esta acción debería lucir más o menos así:
+		permissions.add(new SimpleGrantedAuthority("ROLE_" + this.role.name()));
+    //Lo de concatenarle el "ROLE_" se debe a que Spring Security en automático se lo concatena a todos nuestros roles,
+      por lo tanto hay que añadirselo para que coincidan a la hora de hacer las validaciones.
+
+2.- Hay que asegurarnos de que, por default ninguno de los nombres de nuestros roles empiecen con "ROLE_", porque si esto
+    ocurre, va a ser lanzada una excepción, ya que Spring Security ya nos concatena ese "ROLE_"
+
+3.- Ahora sí volveremos a nuestro SecurityFilterChain y entraremos a nuestro método authorizeHttpRequests, e iremos
+    añadiendo nuestros authorizeHttpRequests.requestMatchers. Pero esta vez lo haremos llamando al método hasRole o 
+    hasAnyRole. Posteriormente colocaremos el nombre del o de los roles (en el caso de hasAnyRole le podemos pasar varios).
+    La configuración de estos requestMatchers debería lucir algo así:
+	authorizeHttpRequests.requestMatchers(HttpMethod.POST, "/categories").hasRole(ROLE.ACMON.name());
+	

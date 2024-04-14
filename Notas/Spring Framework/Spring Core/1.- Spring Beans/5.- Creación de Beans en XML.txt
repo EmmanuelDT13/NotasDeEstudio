@@ -1,0 +1,34 @@
+La creación de Beans en xml es algo obsoleto, sin embargo, pudieramos encontrarnos la sorpresa de que algún proyecto muy
+viejo los sigue utilizando. Por lo tanto, a continuación explico cómo crearlos:
+
+1.- Se creará un archivo xml en la carpeta src/main/java/resources. El archivo necesita de cajón la siguiente estructura:
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+//Aquí es donde vamos a ir definiendo nuestros beans:
+
+    <bean id="direccion" class="com.ejemplo.Direccion">  //Comenzamos abriendo la etiqueta bean. El id será el nombre del
+							   bean y class será la clase donde lo tenemos guardado.					
+        <property name="calle" value="123 Main Street"/> //Aquí estamos colocando una propiedad de nuestro objeto.
+        <property name="ciudad" value="Ciudad Ejemplo"/> //Aquí otra propiedad. Spring detecta automáticamente el tipo.
+
+    </bean>
+
+    <!-- Definición del bean Persona -->
+    <bean id="persona" class="com.ejemplo.Persona">
+        <property name="nombre" value="John Doe"/>
+        <property name="edad" value="30"/>
+        <!-- Referencia al bean Direccion -->
+        <property name="direccion" ref="direccion"/>  //Como estamos llamando a otro bean, no usaremos value sino ref.
+    </bean>
+
+</beans>
+
+
+VER IMÁGEN PARA VER OTRO EJEMPLO
+   

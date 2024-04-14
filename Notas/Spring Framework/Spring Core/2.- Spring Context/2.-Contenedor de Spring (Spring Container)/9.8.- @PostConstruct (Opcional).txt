@@ -1,0 +1,4 @@
+Una alternativa interesante a InitializingBean es @PostConstruct. Pues te ofrece la misma posibilidad de crear un método
+que se ejecutará después de Populate Properties. 
+Aquí no necesitas implementar ninguna interface, únicamente definirás el método que te gustaría que fuera ejecutado y lo
+marcas con @PostConstruct

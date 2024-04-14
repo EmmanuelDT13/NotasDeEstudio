@@ -1,0 +1,19 @@
+BeanPostProcessor es una interface que nos permitirá influir en el proceso antes y después de la inicialización de nuestro
+Bean.
+Esto significa que después de haber instanciado el Bean, de Populate Properties, y de ejecutar los Awares (si están
+presentes), procederá a ejecutar los métodos:
+
+public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {return bean;}
+
+public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {return bean;}
+
+CONSIDERACIONES: 
+
+1.- Primero se ejecutará el postProcessBeforeInitialization. Posteriormente se iniciará el Bean (este proceso lo veremos 
+    en siguientes temas). Y por último, ejecutará el método postProcessAfterInitialization.
+
+2.- Esta interface NO la vamos a implementar en cada Bean. Al igual que con @Configuration, lo que establezcamos en esta
+    clase va a afectar a todos los Beans que creamos.
+
+3.- No olvides registrar esta clase en el contenedor de Spring mediante @Component, así detectará la clase y tomará en
+    cuenta su configuración.

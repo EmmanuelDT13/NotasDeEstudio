@@ -1,0 +1,20 @@
+El tema de la extracción de claims en un token es verdaderamente importante sobre todo para procesos de login y 
+autorización de acceso a recursos. Cuando un usuario manda un token en una petición Http, debemos descomponerlo para
+asegurarnos de que este es válido, es vigente y ha sido proporcionado por el usuario correcto. Con lo anterior seremos
+capaces de darle acceso a los recursos.
+
+Para lograr lo anterior, vamos a irnos a nuestro Token service y le crearemos un método al que podemos llamar extractClaims
+el cuál contendrá las siguientes características:
+
+1.- Este método aceptará un String token y regresará una implementación de Claims.
+
+2.-Mediante la clase utilería de Jwts, llamaremos a:
+   parserBuilder().setSigningKey(createKey()).build().parseClaimsJws(token).getBody();
+   Aquí estamos descomponiendo el token. Utilizamos el método interno previamente creado llamado createKey, puesto que
+   necesitaremos de las mismas llaves para que sea posible descomponerlo. Al ejecutar este método, tenemos los claims.
+
+3.- Crearemos otro método al que llamaremos getNameByClaims. Este únicamente llamará a extractClaims y ejecutará su método
+    getSubject().
+
+4.- Gracias a seguir este proceso, tendremos un método para acceder a los claims y otro para acceder al nombre.
+    Ambos nos van a servir a futuro.

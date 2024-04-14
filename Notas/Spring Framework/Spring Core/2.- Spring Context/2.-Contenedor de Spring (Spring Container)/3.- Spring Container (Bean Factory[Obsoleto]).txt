@@ -1,0 +1,5 @@
+El bean factory será el contenedor de spring que gestionará todas las dependencias y los beans que configuremos.
+Gracias a BeanFactory vamos a poder configurarlos, crearlos e inyectarlos. Sin embargo, este contenedor ya casi no se usa
+porque es obsoleto y ApplicationContext hace lo mismo pero mejor y más completo.
+
+Este Contenedor se basa en la configuración de Beans que encontramos en el submódulo de beans.

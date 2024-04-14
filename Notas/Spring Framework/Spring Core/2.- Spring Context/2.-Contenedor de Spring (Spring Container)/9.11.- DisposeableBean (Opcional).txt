@@ -1,0 +1,3 @@
+DisposableBean es una interface que nos añadirá un método a nuestra clase que declaramos como Bean.
+Este método destroy, se ejecutará antes de que el Bean sea destruído. Aquí vamos a añadir toda la lógica que deseemos
+realizar antes de su destrucción.

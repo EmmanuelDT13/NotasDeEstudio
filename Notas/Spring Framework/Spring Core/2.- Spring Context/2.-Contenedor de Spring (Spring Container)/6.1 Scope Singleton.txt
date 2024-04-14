@@ -1,0 +1,23 @@
+Cuando nosotros creamos un Bean bajo el scope Singleton, estamos determinando que nuestro contexto creará solamente un
+Bean de este tipo a lo largo de toda la ejecución del programa. ¿Qué significa esto?
+Aunque nosotros llamemos una y mil veces este mismo Bean en diferentes métodos y clases en a lo largo de nuestra
+aplicación, siempre nos estará devolviendo el mismo Bean una y otra vez, no creará uno diferente o uno neuvo cada vez que
+lo instanciemos. De esta forma evitaremos gastar innecesariamente recursos en en nuestra aplicación creando una y otra
+vez el mismo Bean.
+La duración vida de este Bean es durante toda la vida de nuestra aplicación. En cuanto la aplicación se apague, el Bean
+es destruído.
+
+¿Cómo definir este Scope al crear nuestro Bean? A continuación te lo muestro:
+
+1.- Mediante XML: <bean id="miBeanSingleton" class="com.ejemplo.MiBeanSingleton" scope="singleton"/>
+
+2.- Mediante anotación:
+
+@Component
+@Scope("singleton")
+public class MiBeanSingleton {
+    // ...
+}
+
+OJO, si vamos a querer crear un Bean mediante Singleton, no es necesario definirlo como mostré a continuación, porque
+Spring asigna por defecto este scoop a todos los Bean que creamos. Solo es para que lo tengas en consideración.

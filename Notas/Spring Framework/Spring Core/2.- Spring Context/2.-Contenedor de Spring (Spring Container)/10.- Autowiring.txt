@@ -1,0 +1,6 @@
+El autowiring es la posibilidad que Spring ofrece para hacer la inyección de dependencias de una forma más fácil y sencilla
+Aquí ya no tendríamos que llamar a la instancia de nuestro ApplicationContext para que nos retorne nuestro bean.
+Más bien, lo único que necesitaremos hacer será crear una propiedad en nuestra clase, la cual obviamente debe ser una clase
+marcada con @Component, @Bean, @Service, etc.
+Después de haber colocado la propiedad en nuestra clase, únicamente colocaremos la anotación de nuestra preferencia que
+nos permita inyectar la dependencia automaticamente.

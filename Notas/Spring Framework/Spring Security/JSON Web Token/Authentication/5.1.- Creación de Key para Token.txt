@@ -1,0 +1,21 @@
+Para generar nuestros tokens de autentificación, será necesario que creemos una clase encargada de crearlos.
+Por lo tanto, crearemos una clase de tipo Service, la cual, hasta este punto, únicamente va a implementar dos métodos, al
+primero le podemos llamar: generateToken. Y al segundo lo podríamos llamar generateKey.
+
+Generate Key:
+
+Este método será previo a la construcción de nuestro Token. Esto debido a que un componente clave para poder crearlo es 
+la Key o contraseña que utilizaremos para poder firmar nuestro Token y que este no sea posible de alterar o vulnerar por
+otros usuarios.
+
+Para generar este Key, crearemos el método generateKey, el cual tendrá las siguientes características:
+
+1.- Regresará una implementación de la interface java.security.Key.
+
+2.- Previamente debemos tener una contraseña String definida por nosotros mismos, la cual consideremos segura. Esta
+    contraseña la vemos a convertir en un Array de Bytes mediante el método getBytes de los Strings.
+
+3.- Posteriormente vamos a crear nuestra Key mediante la clase utilería Keys.hmacShaKeyFor(myArrayDeBytes).
+    Esta forma muy común de crear una llava basándonos en los Bytes de la contraseña.
+
+4.- Por último, retornaremos el resultado de este método.

@@ -1,0 +1,26 @@
+Para consumir mediante GET una api, será necesario seguir los siguientes pasos:
+
+1.- Instanciamos el objeto RestTemplate en la clase donde vayamos a realizar el consumo.
+
+2.- Llamaremos al método getForObject Ó al método getForEnity. ¿Cuál es la diferencia entre uno y otro? Únicamente la 
+    respuesta que nos van a proporcionar. Mientras que getForObject nos trae únicamente el objeto o body de la respuesta,
+    getForEntity nos va a traer todo el ResponseEntity, de esta manera tendremos más datos como el status code, información
+    sobre la Http request que se realizó, etc. El uso de uno u otro dependerá de qué tanta información necesitemos.
+
+3.- Ambos métodos comparten el mismo tipo y cantidad de parámetros que reciben, así que eso facilita las cosas.
+    A continuación se muestran las tres formas de llamar estos métodos. Para estos ejemplos usaremos getForObject, pero
+    recordemos que aplican también para getForEntity:
+
+
+	1.- getForObject("http://localhost...", ClaseDeLaRespuesta.class)
+	//Aquí el primer parámetro es el URL y la clase que previamente mapeamos para capturar la respuesta.
+
+	2.- getForObject("http://localhost/getCliente/{idCliente}", ClaseDeLaRespuesta, 1)
+	//Primer parámetro es URL, el segundo es la clase de respuesta y el tercero es un valor de la url que sustituimos.
+
+	3.- getForObject("http://localhost/getCliente/{idCliente}/{idDepartamento}", ClaseDeLaRespuesta, HasMap)
+	//En este último añadimos un Map, dentro de este map añadiremos con clave-valor, todas las variables que deseemos
+	  sustituír en nuestro URL. Esta opción es como la 2 pero mucho más potente.
+
+OJO. Los métodos getForObject y getForEntity nos permitirán hacer peticiones más sencillas como las que acabamos de
+colocar. Sin embargo, si quisieras añadir headers o una petición más completa, tendrías que recurrir al método exange.

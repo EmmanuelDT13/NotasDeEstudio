@@ -1,0 +1,19 @@
+El objeto RestTemplate nos ofrece dos tipos de método post. El primero es postForObject y el segundo es postForEntity.
+Las diferencias entre estos dos es similar a la de getForObject y getForEntity. Puesto que, cuando llamas a postForObject,
+la respuesta que obtienes del servidor es directamente el objeto en cuestión que solicitaste a la Api. Sin emabrgo,
+cuando llamas a postForEntity, estás recibiendo el objeto ResponseEntity, el cual te servirá para obtener más información
+como los headers, el httpStatusCode, etc.
+
+A continuación se muestran ejemplos de las diferentes formas de llamar este método. Cabe resaltar que para estos ejemplos
+se utilizará postForObject, pero es exactamente la misma forma de uso para postForEntity:
+
+
+1.- postForObject("http://localhost...", ObjetoAPostear, ObjetoDeRespuesta.class);
+    //Aquí estamos otorgando parámetro url, el objeto a postear y la clase del objeto que esperamos como respuesta.
+
+2.- postForObject("http://localhost:8080/{idCliente}", ObjetoAPostear, ObjetoDeRespuesta.class, 1);
+    //Aquí estamos añadiendo un url con variables, el objeto a postear, la clase de respuesta y el varlo de la variable url
+
+3.- postForObject("http://localhost:8080/{idCliente}/{idVendedor}", ObjetoAPostear, ObjetoDeRespuesta.class, HashMap);
+    //Aquí como estamos colocando una url con más de una variable, vamos a colocar como último parámetro un HashMap, el
+      cual contendrá las variables mediante clave-valor.

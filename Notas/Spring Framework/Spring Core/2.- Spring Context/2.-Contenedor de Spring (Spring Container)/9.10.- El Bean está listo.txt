@@ -1,0 +1,2 @@
+Después de ejecutar todo el proceso y configuraciones anteriores, el Bean está listo para ser utilizado, por lo tanto, el
+contenedor de spring se encargará de ofrecerlo a las otras áreas de la aplicaición donde este sea necesario.

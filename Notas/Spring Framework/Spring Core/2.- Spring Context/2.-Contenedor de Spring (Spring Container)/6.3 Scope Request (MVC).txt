@@ -1,0 +1,28 @@
+Este scope o ámbito está diseñado para que preferentemente se usen spring MVC. 
+Cuando creamos un bean bajo este scope, el contenedor de spring se encargará de crear un nuevo bean por cada vez que
+se ejecute una petición HTTP, y el bean se mantendrá vivo durante toda la duración de la petición, y una vez esta termine,
+el bean será eliminado. 
+
+Algunas de las ventajas de este scope son:
+
+- Liberación automática de recursos por parte del contenedor de spring, así no se gastan innecesariamente.
+
+- Cada vez que se ejecute la petición http, se creará un nuevo bean con información independiente a otros beans creados
+  con anterioridad. Así podremos mantener nuestra información concisa.
+
+
+Para definir un bean en este scope, haremos una de las siguiente opciones:
+
+1.- Mediante xml:       <bean id="persona" class="com.core.service.serviceImpl.Persona" scope="request">
+
+2.- Mediante anotaciones:
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope("request")   /  @RequestScope
+public class MiBeanRequestScoped {
+
+    // Contenido del bean...
+}

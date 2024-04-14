@@ -1,0 +1,12 @@
+En nuestra clase de tipo service donde estamos gestionando los métodos relacionados a nuestros usuarios, nos vamos a
+encargar de implementar un método tipo createNewUser. 
+
+Este método tendrá las siguientes características:
+
+1.- Recibiendo como parámetro un UserDtoRequest, nos va a crear un usuario y lo persistirá en la base de datos. Como
+    dato a retornar, nos regresará el objeto User que devuelve el método save de nuestro JpaRepository.
+
+2.- A la hora de setearle la contraseña a esta entidad, ES IMPORTANTE que primero la encriptemos, para lograr esto, vamos
+    a inyectar en nuestra clase un objeto de tipo PasswordEncoder, y, como previamente la habíamos configurado un Bean que
+    devuelve un BCryptoPasswordEncder, únicamente lo inyectamos con autowired. Después, encriptamos la contraseña mediante
+    el método encode de este objeto y ahora sí la seteamos a nuestro objeto User y ya lo colocamos en el return.

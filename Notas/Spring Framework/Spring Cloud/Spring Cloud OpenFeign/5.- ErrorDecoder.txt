@@ -1,0 +1,17 @@
+ErrorDecoder es una herramienta que OpenFeign nos ofrece para un mejor manejo de errores.
+Esta interface nos va a incluír un método, este método contiene como parámetro la respuesta que se recibió del servidor
+después de haber realizado la petición a la API rest externa. Entonces, gracias a esta respuesta, vamos a tener la
+posibilidad de acceder al status code de nuestra petición.
+De esta manera, dentro del método que nos ofrece la interface ErrorDecoder, vamos a ser capaces de, dependiendo el status
+code, configurar para que lance la excepción que nosotros deseemos. Por ejemplo, podemos crear una excepción llamada
+"ClienteNoEncontradoEnDBException", y colocar en un bloque if que si el status code es 404, debe lanzar esa excepción.
+
+¿Qué ventaja nos aporta este ErrorCode? Bueno, vamos a ir capturando todas las posibles excepciones que deseemos que
+se generen en nuestras peticiones. De esta manera, posteriormente podremos configurar qué comportamiento deseamos que la
+aplicación tenga dependiendo de la excepción que sea arrojada.
+
+Así lograremos un mucho mejor control de errores en nuestro microservicio cuando consumimos APIs externas.
+Después de configurar nuestra clase que hereda de ErrorDecoder, vamos a crear un @Bean que retorne este objeto.
+Posteriormente colocaremos la clase donde creamos el Bean como valor al parámetro configuracion de @FeignClient.
+
+No es muy compleja la configuración que nos ofrece ErrorDecoder para realizar, realmente es una interface sencilla.

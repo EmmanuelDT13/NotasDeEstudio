@@ -1,0 +1,5 @@
+Este principio de diseño consiste en quitarle el control sobre ciertos componentes al código o a la aplicación como tal.
+Al quitarle el control, se lo estamos entregando a un agente como un framework, librería, etc. Para que este gestione
+las dependencias o componentes de nuestras aplicación.
+En caso de Spring Framework, este le da el control al contenedor spring, este contenedor se encargará de gestionar todas
+las dependencias o componentes que se necesiten controlar para el funcionamiento de nuestra aplicación.

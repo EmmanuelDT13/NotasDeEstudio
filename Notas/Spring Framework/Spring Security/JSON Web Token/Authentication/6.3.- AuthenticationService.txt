@@ -1,0 +1,22 @@
+Esta clase de tipo Service es donde vamos a establecer los métodos necesarios para la autentificación de nuestro usuarios,
+en esta ocasión, únicamente vamos a establecer un método que nos permita que, al momento de que un nuevo usuario se
+registre, se le devuelva un token para que en automático se inicie la sesión y no tenga que logearse.
+
+- A esta clase, primeramente le vamos a inyectar nuestro TokenService, la cual contiene el método de creación de Token.
+
+- Inyectaremos un objeto de tipo UserService, el cual habíamos implementado anteriormente y le habíamos creado el método
+  createNewUser, el cual creará un user basándose en el UserDtoRequest y lo persiste en la base de datos.
+
+Posteriormente, crearemos el método de Autorización del Usuario, al cual podemos llamar createUser, y será algo así:
+
+1.- Instanciaremos un objeto de tipo User, el cual será igual al método createNewUser de nuestra clase UserService.
+
+2.- Crearemos un objeto de tipo UserDtoResponse, el cual será la respuesta que le daremos a nuestro cliente o frontend al
+    momento de crear un nuevo usuario. Comenzaremos a setearle nombre, nombre de usuario, role, etc.
+
+3.- Ahora pasaremos al proceso de setearle el token a nuestro UserDtoResponse. Para ello craremos un String, el cual será
+    igual a nuestro TokenService.createToken(). Este método recibirá dos parámetros: Un UserDetails(nuestroUsuario) y un
+    Map<String, Object>(), el cual serán los claims que queremos que nuestro token tenga.
+    En este caso únicamente crearemos un HashMap colocando como clave-valor el username, el name, el correo, el id, etc.
+    Añadiremos toda la información que consideremos relevante y queramos mandar en el token. 
+    Y listo, habiendo seteado todo esto, ya podemos retornar nuestro objeto UserDtoResponse.

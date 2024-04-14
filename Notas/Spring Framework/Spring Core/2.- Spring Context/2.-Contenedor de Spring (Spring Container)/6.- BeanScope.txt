@@ -1,0 +1,9 @@
+El Bean Scope es lo que define tanto la duración de la vida de un Bean, como su alcance y visibilidad en el contexto de
+nuestra aplicación.
+Esto llega a traernos varias ventajas a la hora de diseñar y desarrollar nuestra aplicación. 
+Por ejemplo, no nos interesa que un Bean esté existiendo a lo largo de toda nuestra aplicación, a lo mejor solamente 
+queremos que cumpla con una función y después muera, pues BeanScope nos permitirá determinar su tiempo de vida.
+Además, podemos definir por ejemplo, que nuestro contenedor solamente creará una instancia de este Bean a lo largo de toda
+la aplicación, así no gastaremos recursos innecesarios.
+O tal vez preferimos que por invocación a este Bean, se cree una instancia independiente, así evitaremos problemas de
+concurrrencia. Estas son algunas de las ventajas de BeanScope en Spring.

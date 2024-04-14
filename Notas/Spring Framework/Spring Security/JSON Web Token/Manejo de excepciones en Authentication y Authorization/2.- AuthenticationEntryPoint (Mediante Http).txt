@@ -1,0 +1,26 @@
+Una de las desventajas que tenemos a la hora de trabajar con authorization basada en métodos y anotaciones, es que solo
+podemos manejar las excepciones de tipo AccessDeniedException. Nunca que nos va a lanzar una excepción diferente como la de
+BadCredentialsException, la cual se presenta cuando no colocamos ningún token.
+Por lo tanto, para poder distinguir entre estas dos excepciones y tener mejor control a la hora de configurar la 
+seguridad en nuestra aplicación, necesitaremos trabajar mediante seguridad basada en coincidencias http.
+
+Así es que, este método aplica únicamente para authorization basada en http y filtros.
+No olvidemos que hay que colocar @EnableWebSecurity en nuestro HtttpSecurityConfig.
+
+AuthenticationEntryPoint se encargará de verificar que, cuando la solicitud Http ingrese a nuestra aplicación, se cuente
+con un token cuyas credenciales sean válidad. De lo contrario, mandará una excepción de autentificación.
+
+Para que podamos manejar esta excepción cuyo error code es 401: Fobiden, vamos a crear un @Bean, el cual implementará la
+interface AuthenticationEntryPoint, e implementaremos su método.
+Después seguiremos los siguientes pasos:
+
+1.- Setear el tipo de respuesta a application/json mediante response.setContentType.
+2.- Seteamos el estatus code mediante response.setStatus(401)
+3.- Crearemos un ApiResponseError mediante con la información que deseemos y la convertiremos a Json mediante ObjectMapper.
+	ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        String errorResponse = objectMapper.writeValueAsString(dtoError);
+4.- Escribimos este errorResponse en el response mediante: response.getWritter().write(errorResponse).
+5.- Por último, vamos a nuestro securityFilterChain y llamamos al método exceptionHanding, y como parámetro colocaremos una
+    expresión lambda. La cual contendrá un parámetro llamado exceptionConfig, al cual le llamaremos su método llamado
+    authenticationEntryPoint y le seteamos el componente que previamente creamos. El cual será un bean.

@@ -1,0 +1,7 @@
+Lo que hemos visto hasta ahorita, son procesos de autorización simples, los cuales utilizan enumeraciones para definir
+roles y permisos. Sin embargo, si deseamos trabajar con estos a nivel base de datos, será necesario personalizar nuestros
+propios AuthorizationManager, además de crear y mapear nuestras entidades de roles, permisos, etc. Para que puedan ser
+insertados en la base de datos.
+
+A continuación se detallará más acerca de este tema. Comencemos con la configuración de nuestro propio
+AuthorizationManager.

@@ -1,0 +1,4 @@
+ApplicationContext es el contenedor spring que más se usa actualmente, esto debido a que es más potente y completo que su
+predecesor BeanFactory. Además, ApplicationContext se deriba de SpringContext, mientras que BeanFactory de Spring Bean.
+
+Por lo regular siempre vas a ver que este es el contenedor que se usa, ya casi no se ve BeanFactory.

@@ -1,0 +1,7 @@
+La creación de nuestro propio authorizationManager es un proceso importante. Por lo tanto, a continuación te muestro los
+pasos que seguiremos para tener este @Bean creado.
+
+1.- Crearemos un @Component, el cual puede tener por nombre MyAuthorizationManager.
+
+2.- Esta clase va a implementar a AuthorizationManager<RequestAuthorizationContext>. Después de haber implementado la
+    interface genérica, añadiremos el método que incluye consigo.

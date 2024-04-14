@@ -1,0 +1,22 @@
+@ComponentScan siempre será utilizada junto a @Configuration en nuestro proyecto de spring. 
+Cuando utilizamos esta configuración, estamos declarando que el contenedor de spring únicamente va a tomar en cuenta los
+Beans que fueron creados dentro de el o los paquetes que establecemos dentro del @ComponentScan.
+Cabe destacar que no solamente podemos agregar un solo paquete en esta configuración, podemos agregar varios puesto que
+esta anotación recibe un array.
+Esto nos servirá para ahorrar recursos, puesto que si no definimos un @ComponentScan en nuestra aplicación, cuando el
+contenedor de spring intente encontrar la dependencia, buscará en todos y cada uno de los paquetes incluídos en nuestra
+aplicación, gastando así más recursos. Mientras que con la etiqueta, solo se limitará a buscar en donde le indiquemos.
+
+Para implementar @ComponentScan, deberemos hacer lo siguiente:
+
+@Configuration
+@ComponentScan(basePackages = "com.example.servicios")
+public class AppConfig {
+    // Otras configuraciones de Spring pueden ir aquí
+}
+
+Si quisieramos consumir los Beans mediante una instancia de ApplicationContext, podemos hacerlo así:
+
+	private ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Config.class);
+
+O bien, mediante autowired, eso dependerá de nuestra preferencia.

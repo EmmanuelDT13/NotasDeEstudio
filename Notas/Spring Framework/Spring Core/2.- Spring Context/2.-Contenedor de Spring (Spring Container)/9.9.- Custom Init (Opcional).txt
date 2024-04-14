@@ -1,0 +1,13 @@
+Por último, antes de que el Bean esté listo, podemos configurar un método init personalizado, el cual se ejecutará justo
+antes de la inicialización del Bean.
+Para poder lograr que este comando se ejecute, vamos a seguir los siguientes pasos:
+
+1.- Creamos el método dentro de nuestra clase Bean.
+
+2.- Cuando declaremos la anotación @Bean, vamos a colocar: @Bean(initMethod="customInit"). Donde, en este ejemplo, 
+    customInit es el método personalizado de iniciación que definimos dentro de la clase.
+    Una alternativa para realizar este paso es mediante el XML, sería algo así:
+
+   <bean id="myBean" class="paquete.de.MiClase" init-method="customInit" />
+
+3.- Y listo, al crear el bean, el spring container ejecutará este método en el proceso de inicialización.

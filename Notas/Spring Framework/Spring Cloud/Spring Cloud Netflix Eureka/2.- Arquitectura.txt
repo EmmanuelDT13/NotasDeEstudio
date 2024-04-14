@@ -1,0 +1,5 @@
+Este módulo divide dos componentes que estaremos utilizando para nuestro registro de microservicios:
+
+1.- El servidor (Será el encargado de registrar todos los otros microservicios). Será el Eureka Server.
+
+2.- El client (Será el encargado de registrarse en el servidor). Será el Eureka Client.

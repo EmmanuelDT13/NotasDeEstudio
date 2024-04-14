@@ -1,0 +1,26 @@
+Este scope es parecido al anterior de request, pues está muy relacionado a las peticiones http del MVC. Sin embargo,
+la direrencia es que en este ámbito, la vida del bean tendrá la misma duración que la sesión del usuario en nuestra
+aplicación. En cuanto la sesión expire, el bean también será destruído.
+
+Ventajas:
+
+- Ideal para mantener un mismo estatus y consistencia a lo largo de toda la sesión.
+
+- Se puede compartir el estado con otros beans que también sean del ámbito de sesión mientras coexistan.
+
+
+Para implementar este scope vamos a necesitar cualquiera de las siguientes opciones:
+
+1.- Mediante xml: <bean id="miBeanDeSession" class="paquete.MiBeanDeSession" scope="session">
+
+2.- Mediante anotaciones: 
+
+import org.springframework.context.annotation.Scope;
+
+@Component
+@Scope(value = WebApplicationContext.SCOPE_SESSION)  /  @Scope("session")
+public class MiBeanDeSession {
+    // Código del bean
+}
+
+

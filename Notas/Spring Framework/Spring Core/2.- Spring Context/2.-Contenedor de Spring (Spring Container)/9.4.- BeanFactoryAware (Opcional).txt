@@ -1,0 +1,5 @@
+BeanFactoryAware es otro de los pasos opcionales. Si nosotros implementamos esta interface en nuestro Bean, este nos
+añadirá un método llamado setBeanFactory, el cual será llamado automáticamente después de populate properties.
+Al ser llamado este método, se seteará la instancia del spring container/BeanFactory que está almacenando este bean.
+Nuevamente, el hecho de que nuestro Bean sea conciente de cuál es su BeanFactory nos permitirá crear ciertos métodos donde
+deseemos colocar información sobre el contenedor.

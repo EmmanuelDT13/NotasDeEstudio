@@ -1,0 +1,6 @@
+Spring Cloud Netflix Eureka es un submódulo de Spring Cloud encargado de proporcionarnos diferentes herramientas para
+registro y descrubrimiento de nuestros microservicios.
+Aunque también ofrece alternativas para load balancing y api gateway (zuul y ribbon), es MUY importante que sepas que esos 
+servicios o submódulos ya están obsoletos. Spring Cloud tiene otros módulos que ofrecen esas funcionalidades pero mejor, 
+así que aquí solo nos vamos a enfocar en Eureka Server y Eureka Client para el registro y descubrimiento de nuestros
+microservicios.

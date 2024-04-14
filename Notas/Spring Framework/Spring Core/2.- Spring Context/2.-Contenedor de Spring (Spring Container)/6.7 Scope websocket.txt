@@ -1,0 +1,12 @@
+El tipo de Scope WebSocket es un tipo especial en el que el bean que se crea dura durante la sesión del WebSocket.
+
+Este tipo se Scope es usado para crear aplicaciones con WebSocket, para intercambio de mensajes por ejemplo, de manera 
+bidireccional entre cliente y servidor. Este tipo de Scope vivirá mientras la sesión del WebSocket este viva.
+
+Lo podemos implementar de la siguiente manera: 
+
+@Bean
+@Scope(scopeName = "websocket", proxyMode = ScopedProxyMode.TARGET_CLASS)
+public Car car() {
+    return new Car();
+}

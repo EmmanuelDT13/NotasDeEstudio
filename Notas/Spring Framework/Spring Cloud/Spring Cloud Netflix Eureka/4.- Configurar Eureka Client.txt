@@ -1,0 +1,24 @@
+Eureka Client es quien se registrará en el Eureka Server. Este client le brindará al Eureka Client información como su
+nombre de instancia, la cantidad de memoria que está utilizando, su salud, etc.
+
+Para configurar nuestro microservicio como un Eureka Client haremos lo siguiente:
+
+1.- Añadiremos a nuestro micorservicio la dependencia: Eureka Discovery Client.
+
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+
+2.- Posteriormente iremos a la clase principal de nuestro microservicio y dejabo de @SpringBootApplication, vamos a colocar
+    la siguiente anotación: @EnableDiscoveryClient. Así habilitaremos nuestro MS como un Eureka Client.
+
+3.- Realizaremos una configuración básica para que nuestro MS se pueda registrar en el Eureka Server:
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka	//Colocamos el URL donde corre nuestro Eureka Server
+
+4.- Y listo, ya estará registrandose nuestro MS. Recordemos que previamente debe estar encendido el Eureka Server, si no
+    no va a funcionar.

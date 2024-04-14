@@ -1,0 +1,7 @@
+Este es el primer paso que se sigue cuando se crea un bean. 
+Lo primero que se hace será instanciarlo mediante el 
+constructor que hayamos definido al configurar nuestro bean. Si por ejemplo configuramos un constructor predeterminado
+mediante la anotación @Primary, entonces se valdrá de ese constructor para crearlo.
+Si solamente tenemos un constructor, entonces usará ese para entregarnos nuestro bean. 
+Pero si los valores que spring tiene no coinciden con ningún constructor, sería bueno crear un constructor por defecto 
+(un constructor que no recibe parámetros) así Spring podrá crear el Bean sin que la aplicación caiga.

@@ -1,0 +1,17 @@
+En el contexto de OpenFeign, cada vez que mencionamos a los clientes, nos estamos refiriendo a la interface donde vamos
+a declarar el consumo de nuestra api rest.
+Para crear y configurar un cliente vamos a necesitar:
+
+1.- Mapear un objeto que haga match con las propiedades que la api a consumir nos regresa. Así las podremos recibir.
+
+2.- Crear una interface y colocarle @Component y @FeignClient. Así estaremos declarando que la interface será un cliente.
+
+3.- Dentro de @FeignClient, vamos a añadir dos parámetros. Uno de ellos será: name="cualquierNombre". Este nombre debe ser
+    único. El segundo parámetro será: url="http://localhost:8080". Este será el rooth path de nuestro microservicio a
+    consumir. Finalmente debe lucir algo así: @FeignClient(name="juanitoCliente", url="http://localhost:8082")
+
+4.- Posteriormente vamos a crear cada uno de los métodos para los endpoints que queramos consumir. En este caso la
+    situación se pone más sencilla, puesto que ahora estaremos utilizando las anotaciones @GetMapping, @PostMapping, etc.
+    Para hacer las diferentes peticiones. Algo muy similar a cuando definimos nuestros endpoints, puesto que también
+    vamos a aprovechar las anotaciones @RequestBody, @PathVariable, etc. Para definir el cuerpo y variables que vamos
+    a enviarle a nuestra api al lanzar la petición.

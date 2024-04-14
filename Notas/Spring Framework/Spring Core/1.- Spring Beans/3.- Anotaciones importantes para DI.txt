@@ -1,0 +1,14 @@
+@Autowired: Esta anotación nos permitirá hacer inyección de dependencias tanto en la propiedad, constructor y setter.
+@Qualifier: Esta anotación va de la mano con @Autowired, puesto que en ella podremos especificar el nombre del componente
+	    a inyectar. Esto es útil cuando tenemos varios Bean del mismo tipo y queremos especificar cuál de todos será
+	    el que inyectemos. Ej:  @Qualifier("nombreDeMiBean")
+
+@Resource: Esta anotación es una alternativa a @Autowired, puesto que también nos permite hacer inyección de dependencias.
+	   La diferencia sería que @Resource resuelve más las dependencias por nombre, debido a que en la misma anotación
+	   colocaremos el nombre del Bean. Ejemplo: @Resource(nombreDeMiBean). Otra diferencia es que @Resource nos
+	   permite hacer inyección mediante tipo, es decir, en lugar de crearle un nombre al Bean, colocaremos el nombre
+ 	   de la clase a inyectar. Ej: @Resource(NombreDeMiClase.class). 
+
+@Inject: Esta anotación es nativa de JavaEE. @Inject hará la inyección de dependencias por tipo. Para especificar el
+	 nombre del Bean, puedes valerte de la anotación @Named("nombreDeBean"). OJO, de los tres, este es el menos usado
+	 en proyectos que usen Spring. El más usado es @Autowired con @Qulifier.

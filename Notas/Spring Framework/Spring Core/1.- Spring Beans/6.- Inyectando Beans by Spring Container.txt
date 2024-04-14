@@ -1,0 +1,24 @@
+Una vez que conocemos tanto el Spring Container como la configuración de Beans mediante el XML, ahora vamos a unir estos
+dos para generar la inyección de dependencias. 
+
+Cuando creamos un Bean en el archivo xml, estamos mandando nuestro bean al contenedor, es decir, al contexto de nuestra
+aplicación. El cual es el ApplicationContext porque recordemos que el bean factory ya no se utiliza en proyectos
+modernos.
+
+Entonces, para poder inyectar estos Beans en nuestro código, haremos algo como lo siguiente:
+
+1.- Mandamos a llamar el Contenedor de nuestra aplicación:
+
+//Aquí estamos llamando nuestro Spring Container mediante el ApplicationContext. Entre paréntesis estamos especificando
+//que este contexto tomará en cuenta el archivo "Beans.xml" que previamente habíamos creado. Ahí fue donde creamos nuestros
+//Beans anteriormente.
+ApplicationContext applicationContext = new ClassPathXmlApplicationContext("Beans.xml"); 
+
+2.- De nuestro applicationContext, vamos a obtener el Bean que deseamos llamar:
+
+//Aquí estamos creando un objeto persona, el cual es extraído de nuestro applicationContext con el método getBean y como
+//parámetros colocaremos el nombre del Bean y la clase a la que hará referencia.
+Persona my_persona = applicationContext.getBean("persona", Persona.class);
+
+3.- De esta forma, ya tendremos nuestro Bean jalando y podremos llamar sus métodos sin problemas.
+

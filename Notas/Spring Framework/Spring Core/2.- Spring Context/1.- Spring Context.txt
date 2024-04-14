@@ -1,0 +1,5 @@
+Spring Context es un módulo encargado de gestionar los componentes de nuestra aplicación. Aquí es donde se encuentran
+temas como el contenedor de spring, el manejo de transacciones, la configuración de la aplicación, manejo de eventos,
+la programación orientada a aspectos, inyección de dependencias, etc.
+OJO, el Submódulo Spring Beans también incluye un apartado relacionado a la creación de Beans, sin embargo aquí también
+se incluyen esas configuraciones pero más completas.

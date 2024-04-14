@@ -1,0 +1,12 @@
+AuthenticationManager es el principal componente que se encargará de manegar las solicitudes de autentificación que se
+reciban por parte del cliente (usuario). Este proceso no lo logrará por sí solo, sino que utilizará un objeto de tipo
+AuthenticationProvider para que procese tareas como comparar la contraseña que el usuario acaba de ingresar, con la
+contraseña que está almacenada en base de datos.
+
+Para configurar un AuthenticationManager a nivel básico, únicamente necesitaremos crear un @Bean que regrese un objeto de
+tipo AuthenticationManager, y dentro del cuerpo del método únicamente crearemos un objeto de tipo
+AuthenticationConfiguration, y por último, regresaremos el resultado de ejecutar el método getAuthenticationManager de este
+objeto creado en el cuerpo de método.
+
+Tomemos en cuenta que este AuthenticationManager es una implentación sencilla, más delante veremos cómo configurar uno más
+completo.

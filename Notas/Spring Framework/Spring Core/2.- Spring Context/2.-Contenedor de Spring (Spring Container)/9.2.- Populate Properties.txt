@@ -1,0 +1,6 @@
+Este paso del lifecycle es donde spring comenzará a llenar todas las dependencias que nuestro bean tiene.
+Estas dependencias serán llenadas siempre y cuando tengan métodos setters o si fueron marcados con la anotación
+@Autowired. 
+
+En resumen, aquí es donde totas las propiedades o dependencias que no fueron definidas durante el proceso de 
+instanciación, serán definidas gracias a los setters e inyección de dependencias como @Autowired.

@@ -1,0 +1,7 @@
+Siempre, cuando se crea un Bean, el contenedor de spring automáticamente seleccionará el constructor más apropiado para
+instanciar el Bean según los parámetros o datos que tenga disponibles.
+Pero si los argumentos no son suficientes para poder instanciarlo mediante ese constructor, entonces recurrirá a buscar
+el constructor default (constructor sin argumentos).
+
+Pero también podemos crear un constructor y definirlo como el constructor por default que se utilizará siempre. Esto lo
+lograremos colocando @Primary por encima del constructor que hemos seleccionado como el preferido.

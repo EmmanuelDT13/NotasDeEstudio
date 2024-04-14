@@ -1,0 +1,2 @@
+Como al tomar el curso sobre Netflix Eureka no había cursos que amplaran mucho el tema de las configuraciones, dejé este
+tema pendiente. Hay que dedicar un tiempo más adelante para profundizar sobre Eureka Server y Eureka Client.

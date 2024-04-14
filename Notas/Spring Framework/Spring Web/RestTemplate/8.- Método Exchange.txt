@@ -1,0 +1,8 @@
+Este método es un método más avanzado que todos los anteriores, pues es universal, esto quiere decir que te permite 
+realizar tanto, get, post, put, patch y delete.
+Su principal diferencia es el hecho de que te permitirá más control tanto en la información que envías como en la
+información que recibes. Esto te dará la posibilidad de generar peticiones más complejas que en los métodos anterior
+mencionados. Un dato a considerar es que exange siempre te devolverá el ResponseEntity, no solo el objeto.
+A continuación se presentan todas las posibles maneras que tenemos que ejecutar el método exchange:
+
+COLOCAR AQUÍ LOS MÉTODOS EN UN FUTURO, ME SATURÉ LA MENTE CUANDO ESTABA VIENDO ESTE TEMA.

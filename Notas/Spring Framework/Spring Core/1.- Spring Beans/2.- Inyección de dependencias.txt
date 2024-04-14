@@ -1,0 +1,17 @@
+La inyección de dependencias es uno de los medios que spring usa para la inversión de control.
+Esta prácticar consiste en dejar de declarar nuestras dependencias directamente en la clase que deseamos invocarlas. En
+lugar de eso, vamos a configurar nuestras clases para que estas reciban sus dependencias a través de la inyección de
+las mismas, aquí es donde el contenedor de spring hará su trabajo, pues le daremos la oportunidad de ser él quien
+proporcionará las dependencias a nuestras clases siempre que lo necesiten.
+
+
+Para hacer la inyección de dependencias, tenemos tres métodos principales:
+
+1.- Por propiedad: Únicamente colocaremos la anotación @Autowired arriba de la propiedad que queremos inyectar en nuestra
+    clase.
+
+2.- Por constructor (Este es el más recomendado): Crearemos un constructor en nuestra clase, y al pasarle como parámetro
+    la dependencia que queremos inyectar, colocaremos @Autowired antes de la propiedad.
+
+3.- Por método setter: Aquí vamos a crearle un método setter a la propiedad en cuestión, esto lo haremos dentro de la
+    clase. Y encima del método, vamos a colocar nuevamente @Autowired.

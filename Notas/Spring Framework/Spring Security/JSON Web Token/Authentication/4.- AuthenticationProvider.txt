@@ -1,0 +1,21 @@
+Authentication Provider es el objeto que Spring Security nos ofrece para colaborar con AuthenticationManager al realizar
+las tareas de verificación donde se valida que las credenciales que el usuario nos está proporcionando a través del 
+cliente coinciden con las credenciales que tenemos en la base de datos. Si estas resultan coincidir, se autentificará 
+al usuario y se le permitirá acceder al recurso.
+
+Todas estas tareas serán delegadas por el AuthenticationManager, por eso decimos que trabajan en conjunto.
+
+Para configurar este AuthenticationProvider en nuestra aplicación, crearemos un @Bean que regresará un objeto de tipo
+DaoAuthenticationProvider, pues esta es la implementación más común y usada para configurar un AuthenticationProvider.
+Lo que haremos aquí es crear este objeto, y posteriormente y muy muy importante será setearle el Password Encoder y el
+UserDetailsService.
+A continuación te explico qué son y por qué son importantes en este proceso.
+
+1.- PasswordEncoder: Se supone que las contraseñas de usuarios están encriptadas en la base de datos. Y la contraseña que
+    el usuario nos manda al ejecutar la petición no lo está. Para poder compararlas y determinar si coinciden o no, hay que
+    encriptar la que el usuario nos está mandando. Si no, ¿cómo podríamos hacer la comparación.
+
+2.- UserDetailsService: El user details service será el encargado de proporcionarnos al usuario después de buscarlo en la
+    base de datos. Es importantísimo que creemos una clase que implemente esta interface y sobreescribamos su método
+    loadUserByUsername, pues, ¿cómo vamos a comparar la contraseña de nuestro usuario si no tenemos una clase que obtenga
+    al usuario desde la base de datos?
