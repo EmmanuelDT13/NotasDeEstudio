@@ -1,0 +1,22 @@
+Cuando nosotros llamamos el método find() de nuestra colección, este va a regresarnos todos los documentos existentes sin
+ningún tipo de evaluación. Sin embargo, a continuación tenemos algunos métodos que podemos añadir para hacer peticiones
+más avanzadas y específicas.
+
+Mongosh:
+
+1.- db.Grupo.find().sort({name:1}) / db.Grupo.find().sort({name:-1}) //Esto significa que traerá todos los documentos de 
+								       nuestra colección pero odenados. 1 ascendente y -1
+								       significa descendente.
+
+2.- db.Grupo.find().limit(1) //Este método nos traerá la cantidad de documentos que especifiquemos como parámetro.
+
+3.- db.Grupo.find().sort({age:-1}).limit(2) //Podemos combinar ambos métodos para hacer búsquedas ordenadas y con límite.
+
+
+Compass:
+
+1.- Para ordenar nuestra búsqueda, iremos al botón Opciones avanzadas y donde dice sort, colocaremos el objeto JSON con 
+    el nombre de la propiedad a tomar en cuenta y colocaremos ya sea 1 o -1.
+
+2.- En ese mismo menú, hay una propiedad llamada limit. Dentro de ella colocaremos el límite de documentos deseado.
+

@@ -1,0 +1,10 @@
+Con el fin de que nuestros contenedores se puedan comunicar entre sí, debemos crear una red específica donde los vamos a introducir,
+de los contrario el uno no sabrá de la existencia del otro. Imagínate que tienes un contenedor del microservicio y otro contenedor
+de la base de datos, pues estos dos deben estar en la misma red para que el microservicio sea capaz de comunicarse con el
+contenedor de la base de datos y acceder a ella.
+
+1.- Docker network ls				(Así podremos ver las redes disponibles)
+
+2.- Docker network create NombreDeMiRed
+
+Y así de sencillo, ya creamos un red. Posteriormente veremos como añadir nuestros contenedores a ella.

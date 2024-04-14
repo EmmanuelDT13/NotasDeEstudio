@@ -1,0 +1,11 @@
+Si un día necesitamos aumentar el número de réplicas que nuestro replicaset estará supervisando, tenemos algunas maneras de
+lograrlo:
+
+1.- Aumentamos la cantidad desde el archivo yml y procedemos a escribir el siguiente comando:
+    kubectl replace -f mi-archivo.yml	//De esta manera volvemos a correr el archivo pero con las actualizaciones.
+
+2.- Corremos el siguiente comando: kubectl scale -f --replicas=6 mi-archivo.yml 
+    //Así estaremos aumentando su cantidad de réplicas a través del archivo yml.
+
+3.- Corremos el siguiente comando: kubectl scale -f --replicas=6 my-app-replicaset
+    //Aquí estamos escalando al replicaset pero a través de su nombre.

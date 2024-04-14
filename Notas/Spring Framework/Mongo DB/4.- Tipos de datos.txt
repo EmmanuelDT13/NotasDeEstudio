@@ -1,0 +1,14 @@
+Al igual que en cualquier lenguaje de programación y que en otros gestores de bases de datos, en Mongo tenemos también
+una serie de tipos de datos que podremos utilizar a la hora de crear nuestros documentos:
+
+1.- string Ejemplo: db.Grupo.createOne({name: "Gerardo"})
+1.- integer. Ejemplo: db.Grupo.createOne({age:20})
+2.- double. Ejemplo: db.Grupo.createOne({altura:1.78})
+3.- boolean. Ejemplo: db.Grupo.createOne({active:false})
+4.- date. Ejemplo: db.Grupo.createOne({createdDate: new Date()})  //Este método en particular te traerá la fecha de hoy.
+5.- array. Ejemplo: db.Grupo.createOne({courses: ["Matematicas", "Español", "Geografía"]})
+6.- null Ejemplo: db.Grupo.createOne({lastModifiedDate: null})
+7.- subdocumentos Ejemplo: db.Grupo.createOne({domicilio: 
+						  {calle:"Gordiano Guzman"},
+						  {colonia:"Tlayolan"},
+						  {numero: 236},})

@@ -1,0 +1,26 @@
+Para crear un clúster es necesario contar con algunos requisitos.
+Uno muy importante es tener instalado algún software de virtualización de máquinas o de contenerización, por ejemplo,
+virtualbox o docker.
+
+Posteriormente vamos a instalar kubectl, que es quien nos brindará todos los comandos necesarios en la terminal para poder
+interactuar con Kubernetes.
+
+(El cómo instalarlo lo encontramos en la documentación de K8S: https://kubernetes.io/docs/tasks/tools/)
+
+Posteriormente procederemos a instalar minikube en nuestro ordenador. 
+
+(El cómo instalarlo lo encontramos en la documentación de K8S: https://kubernetes.io/docs/tasks/tools/)
+
+Y por último, vamos a crear nuestro clúster con el siguiente comando:
+
+kubectl start --driver=virtualbox 
+(Este comando podría cambiar dendiendo el driver. Lista de drivers: https://minikube.sigs.k8s.io/docs/drivers/)
+
+Una vez que hemos creado el clúster, ya podemos desplegar una aplicación en él. El siguiente ejemplo es un comando básico
+que despliega una app:
+
+kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+
+En el siguiente archivo veremos ciertos comandos que nos permitirán interactuar con este clúster.
+

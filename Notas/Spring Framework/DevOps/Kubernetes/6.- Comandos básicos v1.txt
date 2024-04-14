@@ -1,0 +1,22 @@
+	
+	minikube start --driver=virtualbox	//Crea un clúster con el driver (virtualizador o contenerizador) que desees
+	minikube pase				//Detiene el clúster
+	minikube unpause			//Vuelve a iniciar el clúster que pausamos previamente
+	minukube stop				//Detiene completamente el clúster
+	minikube delete --all			//Elimina el clúster.
+
+	kubectl run pod_de_nginx --image=nginx	//Este comando creará un pod con la imágen que le digamos.
+						  El primer parámetro depués de "run" es el nombre y el segundo es la
+						  la imágen que utilizará para crearlo.
+	kubectl get pods			//Te muestra los pods que exsten creados
+	kubectl get pods -o wide		//Te muestra los pods creados pero con información extra como su IP adress.
+	kubectl describe pod pod_de_nginx	//Este comando nos trará información más detallada del pod especificado.
+	kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0	//Despliega la imágen dentro del
+											  clúster.
+	kubectl expose deployment hello-minikube --type=NodePort --port=8080		//Expone el clúster pod en el 
+											  puerto 8080.
+
+	kubectl delete services mi_app		//Eliminará la app del clúster
+	kubectl delete deployments		//Eliminará el despliegue de la app (aunque elimines la app, una instancia
+   						  de ella que está desplegada seguirá existiendo).	
+

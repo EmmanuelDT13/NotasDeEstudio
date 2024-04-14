@@ -1,0 +1,16 @@
+El TreeSet es una colección que implementa la interface Set. Entre lo más importante a destacar, es que esta colección
+nos permite respetar el órden de los elementos gracias a que ustiliza una estructura de árbol (investigar qué significa).
+Además, nos permitirá no solo mantener el órden según los vayamos insertando, sino que también si lo deseamos, nos 
+permitirá añadir un comparador para que personalicemos la manera en que los nodos se deben de ir ordenando.
+
+Principales características:
+
+1.- NO acepta duplicados.
+
+2.- Respeta el órden natural de los elementos. Sin embargo, podemos añadirle una instancia de Comparator para que decidamos
+    de qué manera en especial queremos que estos se ordenen.
+
+3.- Su uso de memoria es más elevado y tiene a ser algo menos eficiente que un LinkedHashSet debido a su estructura de
+    árbol.
+
+4.- Yo lo usuaría únicamente en situaciones donde: No puedo tener duplicados y necesito un órden personalizado.

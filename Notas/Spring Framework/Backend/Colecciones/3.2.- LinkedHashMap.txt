@@ -1,0 +1,4 @@
+Características:
+
+1.- El LinkedHashMap también respeta el órden de inserción que utilizamos.
+2.- Combina la tabla hash con una lista doblemente enlazada.

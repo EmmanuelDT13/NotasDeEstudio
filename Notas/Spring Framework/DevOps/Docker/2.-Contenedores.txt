@@ -1,0 +1,27 @@
+Estos son los comandos a ejecutar para manipular los contenedores de docker:
+
+
+
+1.- Crear contenedor: docker container create mongo		(En este ejemplo creamos un contenedor que usa con una imágen docker)
+    Al crear el contenedor, se nos va a retornar un ID, este será el ID de nuestro contenedor.
+
+2.- Crear contenedor y ponerle nombre: docker container create --name MyContainer mongo
+
+3.- Crear contenedor mapeandole un puerto: docker container create -p27017:27017	(OJO, el primer puerto debe ser el de
+    nuestro computador real, posteriormente colocamos : y colocamos el número de puerto que crearemos en nuestro contenedor)
+
+3.- Iniciar contenedor: docker start 3453r239r8jwfljsd53333	(Vamos a imaginar que este es el id)
+
+4.- Ver nuestros contenedores en ejecución: docker ps		(Este comando nos regresa los contenedores y su información)
+
+5.- Ver todos nuestros contenedores aunque no estén en ejecución: docker ps -a
+
+6.- Ver todos los logs que ha hecho mi contenedor: docker logs MyContainer
+
+7.- Ver los logs y a parte permanecer activo a cualquier log nuevo: docker logs --follow MyContainer
+
+6.- Detener nuestro contenedor: docker stop MyContainer / 3a7ialkhf83yuf3990a
+
+10.- Descargar la imágen, crear el contenedor e iniciarlo: docker run mongo
+
+11.- Todo lo del paso 10 pero añadiendo puerto y nombre: docker run --name MyContainer -p27017:27017 mongo

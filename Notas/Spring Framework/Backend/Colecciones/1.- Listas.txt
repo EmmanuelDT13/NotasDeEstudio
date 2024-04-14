@@ -1,0 +1,21 @@
+Este tipo de colecciones admiten duplicados. Es decir, tú puedes añadir uno o más objetos que sean exactamente iguales y
+no va a haber ningún problema.
+
+Métodos importantes en esta interface:
+
+
+1.- Forma más sencilla de crear una lista: List<String> my_list = Arrays.listOf("Emma", "Octavio", "Penélope");
+2.- my_list.size()  //Te devolverá el length de la lista
+3.- my_list.indexOf("Emma")  //Te devolverá la posición en la que se encuentra el objeto que colocas entre paréntesis.
+4.- my_list.lastIndexOf("Emma")  //Si un elemento está más de una vez en el array, te devolverá su última posición.
+5.- my_list.add("Ernesto")  //Añadirá este objeto al final del array.
+6.- my_list.add(3, "Ernesto")  //Añadirá este objeto en la posición que le indiquemos.
+7.- my_list.addAll(4, my_otra_lista)  //Aquí estaremos añadiendo más de un objeto, si ya tenemos una lista, simplemente
+    elegiremos en qué posición queremos añadirla y listo.
+8.- my_list.contains("Juancho")  //Aquí nos devolverá un boolean, dependiendo si el obejto existe o no en la colección.
+9.- my_list.get(4)  //Aquí nos estará devolviendo el objeto que tenga la posición 4 en nuestra lista.
+10.- my_list.isEmpty()  //Si la lista está vacia, devuelve true, si no, devuelve false.
+11.- my_list.sublist(1,4)  //Aquí estaremos creando una nueva lista, el cual se basará desde la posición 1 hasta la 4 de
+     nuestra lista original.
+12.- my_list.iterator()  //Nos estará devolviendo un iterador, este nos permitirá recorrrer cada elemento de nuestra lista.
+13.- my_list.set(2,5)  //Te permitirá intercambiar de posición un elemento con el otro. En este caso el 2 con el 5.

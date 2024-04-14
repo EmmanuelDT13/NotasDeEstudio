@@ -1,0 +1,30 @@
+La interface o objeto function nos permitirá declarar una función que recibirá un parámetro y retornará otro. 
+Lo que haremos será especificar el tipo de dato que recibe y el dato que regresa, para posteriormente declarar el cuerpo 
+del método con una expresión lambda.
+
+En esta interface tendremos por lo menos tres métodos principales:
+
+apply,
+andThen y 
+compose.
+
+Para crear una instancia de la interface function, la podemos declarar así:
+
+
+Function<Integer, Integer> duplicarEdad = edad -> edad * 2;  //Aquí estamos declarando la función.
+
+Function<Integer, String> triplicarEdad = duplicarEdad.andThen(edad -> {  //Esta es otra manera de declararla.
+					
+	edad = edad*3;				//Aquí estamos creando una función que dependerá de otra. Lo que hará es 
+	return "Edad = " + edad.toString();     //invocar la función duplicarEdad y la procesará para convertirla en un
+	});  					//String. Para ello usaremos el método andThen. El cual primero procesa
+						//la primera función y luego la segunda. 
+
+//Si quisieramos hacerlo al revés, es decir, primero ejecutar la segunda función y luego la primera, entonces usaremos
+  el método compose().
+
+Y por último, cuando queramos llamar a una función, simplemente haremos lo siguiente con el método apply:
+
+triplicarEdad.apply(edad);
+
+

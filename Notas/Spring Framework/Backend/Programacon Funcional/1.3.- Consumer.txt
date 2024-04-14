@@ -1,0 +1,7 @@
+Consumer es el equivalente a un método void, esto debido a que ejecutará una función pero sin retornar valor alguno.
+
+Consumer<Integer> saludar = edad -> System.out.println("Hola, me alegra que tu edad sea " + edad + " años.");
+
+Para invocar esta función únicamente tendrías que llamar a su método accept() y colocar el parámetro necesario.
+
+Hay que resaltar que también tiene el método andThen(), el cual te permitirá unir una función a otra.

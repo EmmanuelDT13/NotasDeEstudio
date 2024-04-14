@@ -1,0 +1,3 @@
+Un set (conjunto) es una colección cuya principal características es que no permite los elementos duplicados. 
+Tú puedes definir, mediante sus interfaces, si el set mantendrá sus elementos internos ordenados comforme van llegando o si
+no se respetará ese orden.

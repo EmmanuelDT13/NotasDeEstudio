@@ -1,0 +1,23 @@
+Docker run es el comando encargado de crear un contenedor basándonos en la imágen de nuestra preferencia. Para este comando también
+tenemos algunas variantes.
+1.-Docker run ubuntu: Aquí simplemente estamos corriendo una imágen normal
+
+2.-Docker run -it ubuntu bash: Aquí estamos corriendo una imágen pero de manera interactiva. Esto significa que no va a deternerse en
+   automático, sino que nos meterá dentro de la imágen de ubuntu y se detendrá hasta que nos salgamos de la imágen. 
+
+3.- Docker stop 22t8dhsdjda3: Aquí estaremos deteniendo el contenedor que habíamos arrancado.
+
+4.- Docker start 387iufj3dks: Aquí volveremos a activar el contenedor que previamente habíamos creado.
+
+5.- Docker container create ubuntu: Aquí estamos creando un nuevo contenedor.
+
+6.- Docker start -i myContainer: Si ya tenemos un contenedor creado y queremos iniciarlo en modo interactivo, ya no pondremos -it,
+    sino solamente -i
+
+7.- Docker start -d myContainer: Aquí correremos nuestro contenedor detached o background. Esto significa que no se detendrá al
+    iniciarse y tampoco nos meteremos en él. Simplemente se correrá en segundo plano.
+
+8.- Docker run -d ubuntu: Aquí crearmeos un contenedor igual en segundo plano.
+
+9.- Docker run -d -it fedora: Hay algunas imágenes que no soportan el -d para trabajar en modo background. Casi todas lo soportan
+    pero otras no. Aquí lo que haremos es colocar el -it para colocarlo en modo interactivo y aquí sí soportará el -d.

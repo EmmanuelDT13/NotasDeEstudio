@@ -1,0 +1,15 @@
+LinkedList es una Lista con un comportamiento muy similar al ArrayList, sin embargo, se diferencía en términos de
+funcionamiento interno y consumo de memoria al realizar sus tareas. Esta lista se maneja mediante nodos doblemente
+enlazados. ¿Qué significa eso? Bueno, la palabra nodo hace referencia a cada integrante u objeto de la lista en cuestión.
+Y al decir doblemente enlazados queremos decir que cada nodo está conectado al anterior y posterior nodo.
+Características de LinkedList:
+
+1.- Sus nodos son doblemente enlazados (Ver imágen).
+
+2.- Su uso de memoria es mucho más eficiente a la hora de insertar y eliminar nodos (elementos), esto debido a que, si tú
+    eliminas un elemento, el resto ya no se debe recorrer, simplemente se actualiza la conexión de nodos y listo.
+
+3.- Es menos eficiente que el ArrayList a la hora de acceder a una posición en concreto. Si por ejemplo tú ejecutas el
+    método get(10), lo que hará será iterar desde la posición cero una por una hasta llegar a la 10, NO irá directamente
+    a la posición 10. Esto significa gasto de recursos. En este aspecto es más eficiente un ArrayList porque este sí te
+    permite acceder de manera directa a la posición en cuestión.

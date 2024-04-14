@@ -1,0 +1,10 @@
+El ArrayList es una implementación de List, la cual te permitirá crear Arrays dinámicos, es decir, Arrays que pueden
+ampliar o reducir su tamaño e integrantes durante la ejecución del programa.
+Características principales:
+
+1.- Es más eficiente para temas de lectura y acceso rápido a índices. Si tú colocas el método GET, inmediatamente va a 
+    encontrar la posición que le hemos proporcionado. En esto es más eficiente que LinkedList.
+
+2.- Es menos eficiente para tareas de eliminación y agregación de nuevos elementos. Esto debido a que, si eliminamos por
+    ejemplo un elemento, el resto de componentes del array tendrán que recorrerse para ocupar su lugar. Esto implica gastos
+    de recursos y de memoria para ejecutar esa acción. LinkedList es más eficiente aquí.

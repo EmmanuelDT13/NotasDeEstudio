@@ -1,0 +1,14 @@
+Kubernetes es una herramienta que nos permite orquestar los contenedores que albergan los componentes de nuestra aplicación
+Al decir "orquestar", nos referimos a que K8s nos permitirá determinar, automatizar y configurar cómo será el
+comportamiento de nuestros contenedores al ser desplegados.
+Algunas de las configuraciones que podemos definir al orquestar nuestros contenedores son:
+
+1.- Autoescalado: En caso de incrementar la demanda en nuestra aplicación, podemos definir que se deben levantar más
+    contenedores de nuestra aplicación; y viceversa, si la demanda baja, definir que se deben bajar instancias de nuestra
+    app.
+
+2.- Tolerancia a errores: Si algún contenedor falla, podemos configurar que se debe eliminar la instancia y levantar una
+    nueva.
+
+3.- Balanceo de carga: Equilibrar la carga de trabajo entre todos los contenedores de nuestras instancias de la app. Para
+    que no se esté usando una muchísimo mientras que la otra está libre y sin usar.

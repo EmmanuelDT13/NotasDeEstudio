@@ -1,0 +1,18 @@
+Las colecciones son la forma en que vamos a organizar nuestra base de datos. Para manipularlas en nuestra db, contamos
+con los siguientes comandos:
+
+//Este método nos regresará todas las colecciones existentes.
+1.- show collections
+
+//Este método crear una colección llamada maestros
+2.- db.createCollection("Maestros")
+
+//Este método crear una colección llamada maestros pero añadiendo límite de un millón de bytes y máximo 100 documentos.
+3.- db.createCollection("Maestros", {capped:true, size:1000000, max:100})
+
+//Este método crear una colección llamada maestros pero añadiendo límite de un millón de bytes y máximo 100 documentos.
+  Y además no permite que los documentos se creen con auto asignación de index
+4.- db.createCollection("Maestros", {capped:true, size:1000000, max:100}, autoIndexId:false)
+
+//Este método elimina la colección que indiquemos.
+5.- db.Maestros.drop()

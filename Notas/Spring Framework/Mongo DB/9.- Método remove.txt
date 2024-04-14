@@ -1,0 +1,14 @@
+La eliminación de documentos es muy sencilla de llevar a cabo. Este método solamente recibe un parámetro.
+
+Mongosh:
+
+//Aquí estamos eliminando un documento cuyo atribuo name sea "Emmanuel"
+1.- db.Grupo.deleteOne({name:"Emmanuel"})
+
+//Aquí estamos eliminando todos los documentos que sean encontrados con isHuman en false.
+2.- db.Grupo.deleteMany({isHuman:false})
+
+Compass:
+
+1.- Es bastante fácil llevar a cabo esta tarea. Únicamente te irás al documento que quieras borrar y le das en el ícono de
+    thash.

@@ -1,0 +1,40 @@
+Uno de los beneficios de utilizar volúmenes en nuestros contenedores docker es que nos permitirán guardar información de nuestros
+proyectos en el caso de que algún día eliminemos los contenedores, pues si esto ocurre con el contenedor de nuestra base de datos,
+podremos conservar la información que habíamos almacenado en ella.
+
+1.-Aquí lo que haremos será ir al docker-compose que previamente habíamos creado.
+
+2.-Posteriormente crearemos una propiedad llamada volumes y crearemos una sub propiedad con el nombre del volumen que queramos.
+
+3.- Posteriormente iremos a la configuración de nuestro contenedor y en el nivel de environment también le crearemos una propiedad
+    llamada volumes, y ahí es donde escribiremos el nombre del volúmen que previamente creamos.
+
+4.- En el valor de la subpropiedad, vamos a colocar la ruta donde nuestra base de datos guarda la información.
+    (OJO, ESTO VARÍA DEPENDIENDO CADA BASE DE DATOS). El resultado quedaría algo así: 
+
+version: "3.9"
+services:
+  mycontainermicro:
+    build: .
+    ports: 
+      - "8089:8089"
+    links: 
+      - mycontainermongo
+  mycontainermongo:
+    container_name: mycontainermongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: emman
+      MONGO_INITDB_ROOT_PASSWORD: emman
+      MONGO_INITDB_DATABASE: microservicioss
+    volumes:
+      - mongo-data:/data/db
+      # mysql -> /var/lib/mysql                   Esto para que sepamos dónde guardan tanto mysql como
+      # postgres -> /var/lib/postgresql/data      postgres la información de las bases de datos.
+volumes:
+  mongo-data: 
+    
+
+5.- Ahora ya podríamos ejecutar con normalidad nuestro comando docker compose up

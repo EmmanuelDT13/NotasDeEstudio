@@ -1,0 +1,32 @@
+Los operadores de comparación nos permitirán ejecutar consultas más especializadas y enfocadas a nuestros verdaderas
+necesidades.
+A continuación te presento algunos:
+
+//Operador not equals te permite buscar aquellos que no son iguales a lo que coloques como parámetro.
+//Aquí estamos buscando aquellos cuyo name sea diferente a "Emmanuel"
+1.- $ne		Ej. db.Grupo.find({name:{$ne:"Emmanuel"}})
+
+//Operador less than te permitirá encontrar los documentos que son menores al número que coloques como parámetro.
+//Aquí estamos buscando aquellos documentos cuya edad sea menor a 50
+2.- $lt		Ej. db.Grupo.find({age:{$lt:50}})
+
+//Operador less than or equals. Es parecido al anterior, pero incluyendo el límite superior.
+//Aquí estamos buscando los documentos cuya edad sea menor o igual a 34.
+3.- $lte	Ej. db.Grupo.find({age:{$lte:34}})
+
+//Operador grather than. Te trae aquellos que sean mayores al parámetro que colocas.
+4.- $gt		Ej. db.Grupo.find({age:{$gt:34}})
+
+//Operador grather than or equals. Lo mismo que el anterior pero incluyendo el límite inferior.
+5.- $gt		Ej. db.Grupo.find({age:{$gte:34}})
+
+//La combinación de grather than y less than nos permitirá establecer un rango entre números.
+6.- {$gt:20, $lt:50}.	Ej. db.Grupo.find({age:{$gt: 20, $lt: 50}})
+
+//Operador in te permitirá proporcionar un arreglo, de esta manera obtendrás cualquier documento que cumpla con las
+  características especificadas dentro de él.
+7.- $in		Ej. db.Grupo.find({name:{$in:["Emmanuel", "Adrian"]}})
+
+//Operador not in te permitirá proporcionar un arreglo, de esta manera obtendrás cualquier documento que no cumpla con las
+  características especificadas dentro de él.
+8.- $nin	Ej. db.Grupo.find({name:{$nin:["Emmanuel", "Adrian"]}})

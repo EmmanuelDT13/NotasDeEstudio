@@ -1,0 +1,12 @@
+Los index son una herramienta muy útil que nos va a permitir ordenar nuestros documentos y colecciones. De esta manera,
+cuando hagamos una lectura mediante find, no se destinarán muchos recursos en iterar todos los documentos hasta encontrar
+el que cumpla con las condiciones especificadas.
+
+//Aquí estamos creando un index
+1.- db.Grupo.createIndex({name:1})
+
+//Gracias a este comando, seremos capaces de ver los indices que existen en nuestra colección.
+2.- db.Grupo.getIndexes()
+
+//Con este comando eliminaremos el index que coloquemos como parámetro.
+3.- db.Grupo.dropIndex("name_1")

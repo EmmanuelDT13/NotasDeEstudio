@@ -1,0 +1,5 @@
+El predicate es una función que nos retornará booleanos. Dentro del predicate vamos a establecer la condición que el
+valor debe cumplir para ser true o false.
+
+Cabe resaltar que también tenemos el BiPredicate, el cual nos permite recibir dos parámetros para que realicemos
+nuestras validaciones de manera más profunda.

@@ -1,0 +1,32 @@
+ReplicaSet es muy parecido al replicationController, ya que cumplen con la misma funcionalidad. Sin embargo, replicaSet es
+más moderno y es la opción recomendada para crear las réplicas, ya que este viene a reemplazar a replicationController.
+
+Su estructura es la siguiente:
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-app-replicaset
+  labels:
+    name: my-app
+    type: java-backend
+spec: 
+  template:
+    metadata:
+      name: my-app
+      labels:
+        type: java-backend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      type: java-backend
+
+Como podemos darnos cuenta, es muy parecido a la estructura del replicationController, sin embargo, aquí en replicaset
+debemos también añadir la sección de selector, en la cual definiremos qué características deben tener los pods previamente
+creados para poder añadirlos al replicaset. Esto es especialmente útil para cuando ya habíamos creado cierta cantidad de
+pods, les habíamos añadido algún label en particular y al crear nuestro replicaset queremos que este adopte también a esos
+pods para que les esté supervisando, aunque no hayan sido creados junto a él.

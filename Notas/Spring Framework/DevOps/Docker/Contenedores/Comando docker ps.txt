@@ -1,0 +1,16 @@
+El comando docker ps nos muestra, a grandes rasgos, información acerca de nuestros contenedores. Sin embargo, tenemos algunas 
+variantes a la hora de ejecutarlo, las cuales nos mostrarán cada una un resultado diferente.
+
+1.- Docker ps -l: Nos enseñará, de todos nuestros contenedores, el último que fue iniciado; independientemente si este está inciado
+    o abajo, nos enseñará el último.
+
+2.- Docker ps -n 5: Aquí por ejemplo nos enseñará los últimos cinco contenedores que fueron iniciados. Podemos reemplazar el cinco
+    por cualquier otra cantidad de los últimos contenedores que fueron iniciados.
+
+3.- Docker ps -q / docker ps -a -q: Este comando nos devolverá los contenedores pero únicamente su ID, no nos devolverá ni su nombre
+    ni ninguna otra información extra; solo el ID.
+
+4.- Docker ps -s / docker ps -a -s: Este comando te devolverá toda la información de tus contenedores y además su tamaño en disco.
+
+5.- Docker ps -f / docker ps -a -f: Este comando filtrará los contenedores que se van a mostrar en base a algún filtro que coloques.
+    Por ejemplo: docker ps -a -f "name=myContainer". En este ejemplo se te mostrará el contenedor que que llame "myContainer".

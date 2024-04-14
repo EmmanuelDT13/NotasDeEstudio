@@ -1,0 +1,16 @@
+Estas acciones estarán siendo explicadas tanto con mongosh como con compass, que es la interfaz gráfica utilizada para
+maniobrar acciones en mongo.
+Por lo tanto, asegúrate de haber descargado mongosh y configurado la variable de entorno.
+
+Mongosh:
+
+1.- show dbs //Te enseña todas tus bases de datos.
+2.- use admin //Entras a la base de datos llama admin
+3.- use mi_nueva_db //Este mismo comando pero con un nombre nuevo, te permitirá crear una nueva base de datos
+4.- db.createCollection("nueva_cleccion") //Te permitirá crearle una colección a la nueva base de datos que create
+5.- db.dropDatabase() //Elimina la base de datos en la que te encuentras. Este método no recibe parámetros.
+
+Compass
+
+1.- Únicamente iremos a la aplicación, nos conectaremos al host y ahí de manera intuitiva veremos cómo crear nuevas
+    bases de datos, nuevas colecciones, así como eliminarlos.

@@ -1,0 +1,16 @@
+Antes de instalar docker, es conveniente que habilitemos el wsl de windows, esl cual es el subsistema de linux en windows.
+Vale la pena que sobre este subsistema instalemos docker debido a que casi todos los ambientes en producción se encuentran en linux,
+así que tendremos la oportunidad de familiarizarnos más con este sistema operativo y será más fácil para nosotros la configuración
+de nuestras aplicaciones bajo este ambiente de desarrollo. Para habilitarlo deberemos hacer los siguientes pasos:
+
+1.- Escribir en el buscador: Activar o desactivar las características de windows.
+
+2.- Posteriormente activaremos la opción: Subsistema de linux en windows. Posteriormente reiniciaremos la PC.
+
+3.- Para ver las distribuciones de linux en nuestro ordenador, escribiremos: wsl -l -o
+
+4.- Si queremos instalar una nueva distribución, entonces escribiremos: wsl --install -d nombreDeLaDistribucion
+
+5.- Para ejecutar nuestra distribución escirbiremos: wsl (este solo funcionará si solo tenemos una distribución instalada).
+
+6.- Si tenemos más de una distribución, ejecutaremos wsl -d nombreDeLaDistribucion

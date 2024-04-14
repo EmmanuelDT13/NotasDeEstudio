@@ -1,0 +1,14 @@
+La lista Vector nos añade ciertas ventajas que únicamente podremos gozar si es que trabajamos con programación
+sincronizada (multi-hilo). Esto se debe a que, cuando trabajamos con aplicaciones multi-hilo, podría ocurrir que
+necesitemos que los diferentes hilos esten accediendo al mismo tiempo a nuestra lista, así que, como Vector es síncrono,
+podremos con confianza estar utilizando esta colección para evitar problemas de concurrencia.
+
+Características:
+
+1.- No se usa mucho debido a que las aplicaciones modernas no están optando mucho por soluciones sincronizadas para
+    necesidades de concurrencia, más bien recurren a otro tipo de soluciones.
+
+2.- Si no necesitas sincronía o concurrencia en tu aplicación, no hay mucha utilidad al usar esta implementación de List.
+
+3.- A fin de trabajar con programación concurrente, el Vector utiliza los bloqueos para mantener la consistencia. Esto
+    significa que cada vez que se escriba algo nuevo, se realizará un bloqueo hasta que la transacción termine de ocurrir.

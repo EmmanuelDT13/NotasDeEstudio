@@ -1,0 +1,2 @@
+Es lo mismo que el consumer normal, con la única diferencia de que no te limita a solo un parámetro, sino que te
+permitirá colocar dos parámetros. 

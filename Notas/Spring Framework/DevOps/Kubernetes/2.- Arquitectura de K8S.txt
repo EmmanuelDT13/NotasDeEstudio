@@ -1,0 +1,12 @@
+Kubernetes está compuesto por una arquitectura y una serie de componentes que realizan sus tareas en particular.
+El componente principal con el que estaremos interactuando es el clúster, el cual es una red de computadoras que kubernetes
+enlaza para distribuir nuestra aplicación.
+
+Cada una de las computadoras que componen el clúster (las cuales pueden ser físicas o virtuales), se llaman nodos o minions
+y dentro de ellas se encuentran los pods y contenedores de nuestra aplicación.
+
+Cada clúster tiene un nodo principal llamado máster, dentro del cual seremos capaces de asignar todas las configuraciones
+que veamos necesarias para orquestar nuestro clúster.
+
+Al decir "orquestar", estamos refiriendonos a configurar temas como por ejemplo la cantidad de recursos que se estarán 
+designando, los puertos, redes, comunicación entre componentes, etc.

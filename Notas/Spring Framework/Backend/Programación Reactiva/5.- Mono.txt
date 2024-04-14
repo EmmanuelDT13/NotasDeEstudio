@@ -1,0 +1,19 @@
+Mono, como ya platicamos anteriormente, es una de las implementaciones que Reactor nos ofrece crear una instancia del
+Publisher. 
+
+Para crear un mono de manera simple, lo único que tendremos que hacer es declarar su variable de la siguiente manera:
+
+	Mono<Integer> mono = Mono.just(1);
+
+En este caso, lo único que estamos haciendo es crear un mono de tipo integer, cuyo valor será 1.
+
+Posteriormente, para recibir los mensajes que tiene este Publisher, crearemos un Subscriptor (ningún mono puede transmitir
+sus elementos si no tiene a nadie subscrito a él). Por lo tanto, para lograrlo haremos lo siguiente:
+
+	Consumer<Integer> consumer = elConsumido -> System.out.println("Este es el elemento obtenido" + elConsumido)
+
+Y MUY IMORTANTE
+
+	mono.subscribe(consumer);
+
+Recordemos que a fuerza debemos subscribir al menos un elemento a este publisher para poder obtener sus elementos.

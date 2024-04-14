@@ -1,0 +1,23 @@
+El método find(), por sí solo nos trae todos los documentos dentro de la colección. Sin embargo, si deseamos ser más
+específicos y solicitar solo aquellos que cumplan con cierta condición, entonces podemos añadirle parámetros a nuestra 
+llamada al método.
+
+Mongosh:
+
+//El primer parámetro que este método recibe es un objeto con las características que buscamos que el documento tenga.
+1.- db.Grupo.find({name:"Emmanuel", age:"22"}) //Aquí buscará un documento que cumpla con esas características.
+
+
+//El segundo parámetro son los atributos que deseamos ver a la hora de recibir el documento. Quizá no queramos ver todo.
+//Fíjate cómo es que el segundo parámetro es un objeto, dentro del cual colocaremos los atributos del documento y un
+//boolean. Si deseamos verlo, colocamos true. De lo contrario, false.
+2.- db.Grupo.find({name:"Emmanuel"}, {name:true, age:false})
+
+
+Compass:
+
+1.- Para filtrar nuestrs búsquedas, iremos al input llamado Filter y colocaremos un JSON donde especificaremos cuál será
+    el atributo y su valor que deseamos encontrar en el documento.
+
+2.- También tenemos el input llamado Project, este es el segundo parámetro, aquí introduciremos qué atributos de este
+    documento deseamos recibir. Igualmente recibe un JSON con los atributos un boolean si los queremos ver o no.

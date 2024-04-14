@@ -1,0 +1,22 @@
+Mongosh:
+
+Una vez que tenemos nuestra base de datos y la colección creada, veamos qué comandos y acciones tenemos para interactuar
+con los documentos. Estaremos usando como ejemplo una DB llamada Escuela y una colección llamada Grupo.
+
+1.- db.Grupo.insertOne({name:"Emmanuel", age:20}) //Este comando nos permite crear un documento dentro de nuestra base de
+						    datos, específicamente dentro de la colección grupo.
+						    NOTA: Fíjate cómo el parámetro que este método recibe es un objeto.
+
+3.- db.Grupo.insertMany([{name:"Lalo", age:12},{name:"Hector", age:78}]) //Aquí estamos insertando muchos documentos.
+									   NOTE: Fíjate cómo el método recibe un array.
+
+2.- db.Grupo.find() //Este comando nos traerá todos los documentos existentes en esta colección.
+
+Compass:
+
+1.- Para encontrar los documentos existentes, únicamente abriremos la colección que deseemos ver.
+
+2.- Para crear un nuevo documento, iremos al botón "ADD DATA" y le daremos en insert Document. Borramos el documento de
+    ejemplo que nos crea por default y comenzaremos a colocar el objeto plano que deseemos crear.
+
+3.- Si quieres crear varios documentos, simplemente crearás un array en el que envolverás todos tus documentos.

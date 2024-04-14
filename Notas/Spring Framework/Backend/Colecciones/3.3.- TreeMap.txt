@@ -1,0 +1,5 @@
+Características:
+
+1.- Esta implementación está basada en Red-Black Tree
+2.- Mantiene el órden de inserción de los nodos. Pero también te da la oportunidad de establecerle tu propio comparador
+    para definir un órden específico.

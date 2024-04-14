@@ -1,0 +1,25 @@
+Los pods, mencionados anteriormente, son componentes principales con los que estaremos interactuando a la hora de trabajar
+con K8S; son, de hecho, los componentes más pequeños que ofrece Kubernetes.
+
+Los pods albergan los contenedores de nuestra aplicación, ya que no podemos iniciar nuestros contenedores dentro del nodo
+directamente, ya que a la larga esto podría dificultar el mantenimiento de nuestra aplicación y los nodos se volverían muy
+desorganizados.
+
+Por lo tanto, para mantener el órden y facilitar el escalados de nuestra app, K8S nos ofrece los Pods. Cada pod tendrá solo
+un contenedor de nuestra app dentro de sí, es decir, no vamos a meterle dos contenedores de nuestro microservicio a un
+pod; más bien, en el caso de necesitar levantar otra instancia de nuestra app lo que haríamos es levantar otro pod.
+Lo que sí podemos hacer es colocar dos contenedores de dos apps diferentes dentro del mismo pod. Por ejemplo, un
+contenedor de nuestro microservicio a y otro contenedor de nuestro microservicio b (el ms a depende del ms b).
+
+¿Cuáles son las ventajas? 
+
+Desde un inicio podemos configurar el pod para que sepa qué contenedores debe crear dentro del pod a la hora de crearlo,
+y a la hora de eliminarlos también, ya que si el contenedor 1 falla, todo el pod cae, así no tenemos que bajar manualmente
+al otro contenedor.
+
+Esto de los pods facilita demasiado el scale down y scale up.
+
+Dos comandos súper útiles:
+
+kubectl run nginx --image nginx // Levantará un pod con la imágen que especifiquemos.
+kubectl get pods		// Nos dara una lista de los pods que tenemos creados.

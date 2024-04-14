@@ -1,0 +1,34 @@
+Para evitarnos todo este tema de andar creando imágenes, creando redes, creando contenedores, etc. Podemos evitarnos todo eso
+realizando unos simples pasos que unificarán todo:
+
+1.- Debemos tener creado el archivo Dockerfile, ese sí no debe de faltar, pues sus configuraciones las necesitaremos para
+    del contenedor de nuestro microservicio. (VER LA IMÁGEN DEL PASO NÚMERO 3)
+
+2.- Posteriormente, en la carpeta raiz de nuestra aplicación crearemos un archivo llamado docker-compose, en el cual básicamente
+    escribiremos todas las instrucciones de creación de imágenes, contenedores, etc. Pero mucho más simple:
+
+	version: "3.9"			-> Aqui estamos especificando la versión de docker a usar
+	services:			-> En el apartado de services colocaremos todos los contenedores que deseemos crear
+  	  mycontainermicro:		-> Aquí estoy escribiendo el nombre de mi primer contenedor, que es el del microservicio
+    	    build: .			-> Aquí le estoy especificando dónde está el archivo Dockerfile
+    	    ports: 			-> Aquí le digo en qué puerto o en qué puertos voy a ejecutar mi aplicación.
+      	    - "8089:8089"
+    	    links: 			-> Aquí le digo cuáles son los otros contenedores de los que va a depender (base de datos)
+      	      - mycontainermongo
+  	  mycontainermongo:		-> Aquí estoy colocando mi otro contenedor, su nombre
+    	    container_name: mycontainermongo	->Aquí le estoy diciendo el nombre del contenedor
+    	    image: mongo		-> Aquí le digo que usará la imágen de mongo para contenerla
+    	    ports:			-> Aquí le digo a este también qué puerto o puertos usará
+      	      - "27017:27017"
+    	    environment: 				-> Y aquí muy importante también, le estoy diciendo las variables de
+      	      MONGO_INITDB_ROOT_USERNAME: emman		   entorno necesarias para crear la imágen de mongo (puede variar según
+      	      MONGO_INITDB_ROOT_PASSWORD: emman		   la imágen que desees. Consulta dockerhub.com para ver todas las imágenes).
+      	      MONGO_INITDB_DATABASE: microservicioss
+
+3.- Por último simplemente iremos a la carpeta raíz y colocaremos en la terminal el comando: docker compose up para ejecutar
+    todas las instrucciones que colocamos en docker-compose.
+
+4.- Y listo, tanto nuestra base de datos como nuestro microservicio estará listo para recibir peticiones desde postman.
+
+5.- Si queremos eliminar los contenedores e imágenes que se han creado gracias a docker compose, únicamente colocaremos:
+    docker compose down.

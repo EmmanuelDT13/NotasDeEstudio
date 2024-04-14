@@ -1,0 +1,20 @@
+Si queremos crear un POD mediante YAML, vamos a seguir la siguiente estructura básica (hay mas propiedades a parte de
+las que se muestran a continuación, sin embargo, las siguientes son obligatorias):
+
+Imaginemos que este archivo YAML se llama: archivo_creacion_de_pod.yml
+
+apiVersion: v1				//La versión de K8S que usaremos.
+kind: Pod				//Puede ser un pod, servicio, despliegue, etc.
+metadata:				//Información relativa al pod
+  name: myapp_pod			//Nombre que deseemos ponerle al pod
+  labels:				//Labels son anotaciones extras
+    app: my_app				//App es el nombre de la app que deseemos
+    type: front_end			//Podemos hacer más especifico nuestro pod al añadirle un tipo
+spec:					//Aquí pondremos todo acerca de la imágen o app
+  containers:
+    - name: nginx-container		//Nombre que deseemos ponerle al contenedor
+      image: nginx			//Imágen que usaremos
+
+Por último, para poder correr este yaml y crear el pod, ejecutaremos el siguiente comando:
+
+kubectl create -f archivo_creacion_de_pod.yml

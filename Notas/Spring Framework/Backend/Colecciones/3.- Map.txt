@@ -1,0 +1,3 @@
+Los Map son una interface que java nos ofrece para trabajar con colecciones se tipo clave-valor.
+Esta interface tiene varias implementaciones, tales como HashMap, TreeMap, LinkedHashMap, etc. Vamos a estar analizando
+más adelante las implementaciones principales.

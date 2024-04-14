@@ -1,0 +1,27 @@
+Kubernetes se integra por los siguientes componentes principales:
+
+1.- Kuber-Apiserver: Esta es la api rest que nos ofrece el clúster de kubernetes para poder orquestar toda la
+    configuración deseada. Esta api de kubernetes nos ofrece también una interface gráfica que nos ofrecerá todas las
+    funcionalidades disponibles en K8S.
+
+2.- Etcd: Es una base de datos de tipo clave-valor, la cual almacena toda la información relacionada a nuestro clíster y
+    la configuración de nuestros nodos. Todo lo que nosotros definamos dentro de K8S se almacenará aquí dentro.
+
+3.- Kube-scheduler: Este componente de K8S es el que se encargará de insertar dentro de los nodos de nuestro clúster todos
+    los pods que se vayan levantando, pero lo hará de una manera ordenada y balanceando la carga de trabajo de cada nodo,
+    para así garanzar que está insertando el pod dentro del nodo más apropiado para relizar la tarea según los recursos
+    que este necesite.
+
+4.- Kube-Controller-manager: No confundamos este controlador con los controladores de las apis rest, ya que dentro de K8S,
+    los controladores tienen la función de controlar los nodos y verificar su estado de salud. Dentro de los controladores
+    vamos a configurar qué parámetros deben cumplir para considerarse en estado "sano", así como las acciones que deberán
+    realizarse si un nodo ya no está en óptimas condiciones.
+
+5.- Kubelet: Este Kubelet tiene la función de controlar pero a un nivel nodo (mientras que el controlador es a nivel 
+    clúster). Este Kubelet es el que se encargará de recibir la configuración que envía el controlador y asegurarse de que
+    se cumpla. Este Kubelet le estará informando al controlador y recibiendo las intrucciones proporcionadas por él.
+
+6.- Kube-proxy: Este proxy es la red establecida para que los pods del nodo se puedan comunicar entre sí y con los 
+    componentes externos.
+
+7.- Container-runtime: Este será el framework que kubernetes utiliza para manejar los contenedores de nuestra aplicación.

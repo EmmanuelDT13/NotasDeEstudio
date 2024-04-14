@@ -1,0 +1,4 @@
+Las interfaces funcionales nos permitirán crear funciones en nuestras clases. Estas funciones cumplirán una labor similar
+a los métodos, pero con la diferencia de que provienen de la programación funcional.
+Hasta ahorita no le encuentro una ventaja en particular al compararlas contra los métodos tradicionales, pero hay que
+continuar conociendolos para ver su verdadera aplicación útil.

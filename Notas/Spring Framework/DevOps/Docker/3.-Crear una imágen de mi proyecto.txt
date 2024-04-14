@@ -1,0 +1,12 @@
+Una vez conocido el tema de las imágenes, vamos a aprender a convertir nuestro proyecto en una imágen (en este caso, un
+microservicio de java con spring boot).
+
+1.- Lo primero que haremos será crear el .jar de nuestra aplicación. Para ello iremos a la carpeta raiz de nuestra aplicación y
+    ejecutaremos el comando mvn clean install. Esto nos generará el .jar en la carpeta target de nuestra aplicación.
+
+2.- Posteriormente crearemos un archivo llamado Dockerfile en la carpeta raiz de nuestra aplicación, a la cual le establecermos
+    las configuraciones necesarias para explicarle cómo creará la imágen de nuestra aplicación. (VER IMÁGEN).
+
+3.- Posteriormente y habiendo creado el Dockerfile, iremos a la consola y ejecutaremos el comando encargado de crear la imágen de
+    nuestra aplicación: docker build -t NombreDeMiApp:version RutaDeDondeEstáElDockerFile 
+    Habiendo ejecutado este paso, se creará una imágen de nuestro microservicio.

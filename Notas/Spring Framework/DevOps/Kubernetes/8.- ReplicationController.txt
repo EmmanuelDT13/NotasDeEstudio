@@ -1,0 +1,34 @@
+ReplicationController es un componente muy importante de Kubernetes; es uno de los diferentes tipos de controladores que 
+nos ofrece la herramienta.
+Este controller en específico nos permitirá tener alta disponibilidad en nuestro aplicativo, pues se encargará de que 
+en todo momento estén en ejecución la cantidad de pods de nuestra app que nosotros le especifiquemos. Si en determinado
+caso cae uno de esos pods, el replicationcontroller se encagará de levantar una nueva y asegurarse de que siempre se
+cumple la configuración especificada por nosotros.
+
+Para crear un replication controller, vamos a seguir una estructura similar a la que utilizamos para crear un pod, pero
+con ciertas adecuaciones:
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: my-app-replicationcontroller
+  labels:
+    app: my-ap
+    type: backend
+spec:
+  template:
+    metadata:
+      name: my_app
+      labels:
+        type: backend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  replicas: 3
+
+NOTA:
+- Fíjate como en la sección de spec del controller, añades template, ese template es la configuración de los pods que
+  que estarán bajo la supervisión del controller.
+- Fíate como ya no es necesario especificar apiVersion ni Kind dentro de template.
+- Fíjate como después de añadir el template, debes añadir la lista de réplicas que este controller crará de cada pod.

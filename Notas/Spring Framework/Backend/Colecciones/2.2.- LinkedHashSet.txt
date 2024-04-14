@@ -1,0 +1,19 @@
+El LinkedHashSet es una implementación que tenemos para usar los Set, la cual, al igual que todo Set, no nos permitirá
+añadir elementos duplicados.
+Sin embargo, la gran diferencia entre LinkedHashSet y HashSet, es que este sí nos va a permitir mantener el órden en el que
+hemos ido insertando nuestros nodos, así que, si queremos mantener el órden y al mismo tiempo no adminir duplicados, esta
+opción pudiera resultar muy favorable.
+
+Principales características:
+
+1.- Sí mantene el órden de inserción.
+
+2.- No admite duplicados.
+
+3.- Mantiene un buen rendimiento a la hora de realizar operaciones de escritura, lectura, contains y remove.
+
+4.- La única posible desventaja es que, al añadir la posibilidad de mantener el órden de los nodos, las operaciones de 
+    búsqueda podrían ser ligeramente menos potentes debido a la funcionalidad de orden añadida.
+    Además, por este mismo motivo, los LinkedHashSet consumen más memoria que los HashSet.
+
+5.- Yo lo usaría en contextos donde: No debe existir duplicados y el órden debe ser conforme van llegando.

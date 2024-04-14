@@ -1,0 +1,17 @@
+Esta implementación de List nos ofrece ventajas a la hora de trabajar con programación concurrente o multi-hilo, puesto
+que nos va a permitir mantener la consistencia de nuestras colecciones a la hora de añadir nuevos elementos como a la hora
+de leerlos.
+Esta implementación está diseñada para admitir operaciones concurrentes sin necesidad de bloqueo.
+Características:
+
+1.- Cada vez que se añade un nuevo elemento, se crea una copia de la lista original, esto significa que nuestra lista
+    original será inmutable, esto nos permitirá evitar errores de concurrencia si es que otra lista quisiera leer la 
+    información al mismo tiempo que estamos modificandola.
+
+2.- Este mismo tema de que se crea una copia por cada escritura podría significar una desventaja, puesto que estaremos
+    dedicando recursos cada vez que este proceso de repita.
+
+3.- Debido a todo lo anterior, es preferible usar este objeto solamente bajo procesos de mucha lectura y poca escritura.
+
+4.- A diferencia de Vector, NO se realizará un bloqueo cada vez que se ejecute un método, sino que se aprovecha la 
+    inmutabilidad para que no se necesite bloquear el acceso a la lista.

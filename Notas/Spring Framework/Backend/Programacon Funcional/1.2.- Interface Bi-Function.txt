@@ -1,0 +1,16 @@
+Las bi-funciones son muy parecidas a las funciones. La diferencia aquí es que estas aceptan dos parámetros en lugar
+de uno, como en las funciones ordinarias.
+
+Así es como puedes declarar una bi-función:
+
+	BiFunction<Integer, Integer, Integer> multiplicaYDivideEdad = (num1, num2) ->{
+		
+		Integer resultado = (num1 * num2)/2;
+		
+		return resultado;
+	};
+
+
+OJO, Como las BIFunciones son más complejas que las funciones ordinarias, por lo regular un andThen constará en total
+de tres funciones. Las primeras dos realizarán su trabajo, mientras que la tercera se encargará de unir las dos previar.
+Es mejor usar un andThen como conector de dos otras funciones.

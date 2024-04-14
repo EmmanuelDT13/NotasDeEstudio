@@ -1,0 +1,18 @@
+Ahora, será necesario añadir la imágen que creamos de nuestro microservicio en un contenedor. Para ello ejecutaremos el siguiente
+comando:
+
+1.- docker container create -p8089:8089 --name MyContainerName --network MyRedQueCreePreviamente ImagenQueCreePreviamente:version
+    Y listo, con esto habremos creado el contenedor donde estará nuestro microservicio.
+
+2.- Posteriormente vamos a crear un contenedor para la imágen de nuestra base de datos, así que ejecutaremos el siguiente comando:
+
+    docker container create -p27017:27017 --name MyContainerName2 --network MyRedCreadaPreviamente [Aquí añadiremos las variables
+    de entorno, visita el Docker Hub y selecciona la imágen en específico para acceder a su documentación y ver cuáles variables
+    de entorno requiere] imagen:version
+
+3.- ULTIMO PASO Y ACLARACIÓN. Como hemos unido ambos contenedores a la misma red, debemos ir al url donde especificamos que se 
+    encuentra nuestra base de datos, y reemplazaremos localhost por el nombre de nuestro contenedor que contiene la base de datos.
+    Esto debido a que nuestra base de datos ya no está en nuestra red de localhost sino en la red de nuestro contenedor.
+    DEBEMOS REALIZAR ESTE PASO ANTES DE EJECUTR EL MVN CLEAN INSTALL, ESTO PARA QUE SE GUARDEN LOS CAMBIOS.
+
+4.- Y listo, ahora falta darles docker start a ambos para poder usar el microservicio.

@@ -1,0 +1,4 @@
+Docker exec nos permite lanzar comando hacia un contenedor que está activo. Por ejemplo, gracias a Docker exec podemos entrar en modo
+interactivo a un contenedor que ya está activo.
+
+1.- Docker exec nombreContenedor -it

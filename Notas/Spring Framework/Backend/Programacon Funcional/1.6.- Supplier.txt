@@ -1,0 +1,2 @@
+El supplier simplemente es una función que te va a retornar cualquier tipo de dato. Ojo, un Supplier no puede recibir 
+parámetros, únicamente regresa el tipo de dato que especifiquemos entre los <>.

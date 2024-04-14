@@ -1,0 +1,5 @@
+El HashMap es la implementación más utilizada y popular de los Map.
+A continuación te presento algunas de sus características:
+
+1.- No garantiza el orden de inserción.
+2.- Su rendimiento es constante y bueno para operaciones de put y get.

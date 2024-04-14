@@ -1,0 +1,21 @@
+Los operadores lógicos nos permitirán realizar filtros más complejos, sobre todo porque podemos, gracias a ellos, evaluar
+una cantidad grande de condiciones menores.
+
+Mongosh:
+
+//Fíjate cómo es que aquí estamos evaluando que, tanto la edad del documento sea menor a 50, como su atributo llamado
+  isValid sea true.
+1.- $and	Ej. db.Grupo.find({$and:[{$lt:{age:50}},{isValid:true}]})
+
+//Aquí asignamos dos condiciones, sin embargo, con que una de las dos se cumpla, nos traerá el documento.
+2.- $or		Ej. db.Grupo.find({$or:[{age: {$gt:34}}, {isHuman:true}]})
+
+//Aquí evaluamos que ninguna de las dos condiciones debe de cumplirse. Ambas deben de ser false, si esto se cumple, nos
+  traerá el documento.
+3.- $nor	Ej. db.Grupo.find({$nor: [{age:{$gt:34}}, {isHuman:true}]})
+
+//Aquí estamos especificando que nos debe de traer todos los documentos que no cumplan con esta condición.
+//Fíjate cómo estamos solicitando todos los documentos cuya edad no sea mayor a 45. Bien podríamos decir que nos traiga
+  aquellos que son menores a 45. Sin embargo, si hay alguno que tenga el valor age en null, no nos lo va a traer, en
+  cambio, gracias a Not, esos registros con valor en null sí podremos recibirlos.
+4.- $not	Ej. db.Grupo.find({age: {$not:{$gt:45}}})

@@ -1,0 +1,14 @@
+El HashSet es una de las implementaciones que obtenemos de la interface o colección Set.
+Su principal característica es que no necesariamente va a respetar el órden de los elementos conforme los hemos ido
+añadiendo al Set. Estos podrían cambiar de órden. Por lo tanto, si necesitamos trabajar con alguna Colección cuyo órden
+de nodos sea importante, definitivamente deberíamos optar por otra implementación.
+
+Principales características:
+
+1.- No admite duplicados. Si nosotros intentaramos añadir un número, un string o un objeto que ya esté presente en el set,
+    sencillamente la operación no tendrá efecto alguno.
+
+2.- No se respetará el órden en el que hemos ido añadiendo los objetos. Este órden variará en cualquier momento.
+
+3.- Es muy eficiente con tareas como escritura, eliminación, localización, contains, etc. Esto debido a que utiliza una
+    Hash table, tal como su nombre lo indica, para registrar las posiciones de cada nodo que vamos añadiendo.

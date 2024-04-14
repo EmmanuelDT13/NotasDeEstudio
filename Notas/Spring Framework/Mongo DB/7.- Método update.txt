@@ -1,0 +1,18 @@
+El método update nos permitirá actualizar nuestros documentos, ya sea de manera general o solo un atributo en particular.
+Para lograrlo, haremos lo siguiente:
+
+Monosh:
+
+//Este método recibe dos argumentos. El primero es un objeto en el cual describiremos las características del documento
+  a modificar.
+//Y el segundo parámetro serán las nuevas propiedades que tendrá, así como su operador de modificación ($set, $unset)
+1.- db.Grupos.update({name:"Emmanuel"}, {$set:{celular:"iphone"}}) //Set te permite tanto crear un nuevo atributo, como
+								     crear un nuevo atributo.
+
+//Este otro operador $unset te permitirá eliminar cierto atributo que tiene tu documento. En este caso, age ya no existirá.
+2.- db.Grupos.update({name:"Emmanuel"}, {$unset:{age:""}})
+
+Compass:
+
+1.- Hacer estas modificaciones en compass es facilísimo, desde la interface nomás te vas a editar y ya vas modificando
+    todos los atributos, añadiendo o eliminando según sea tu necesidad.

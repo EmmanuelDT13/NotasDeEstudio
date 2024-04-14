@@ -1,0 +1,11 @@
+Aquí encontraremos una lista de todas las imágenes dispibles que hay para docker: https://hub.docker.com/
+
+Para manipular las imágenes usaremos los siguientes comandos:
+
+1.- Ver nuestras imágenes: docker images
+
+2.- Descargar una imágen: docker pull node		(pondremos el nombre de la imágen que deseamos descargar)
+			  docker pull node:20   	(Aquí colocamos : y el número de versión que queremos)
+
+3.- Eliminar una imágen: docker rmi node
+			 docker rmi node:20  		(Aquí estamos espedificando cuál versión en especial queremos borrar) 

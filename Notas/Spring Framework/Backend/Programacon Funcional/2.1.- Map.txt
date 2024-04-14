@@ -1,0 +1,3 @@
+Este método nos permitirá iterar todos los elementos de nuestros arreglos o colecciones.
+La diferencia con forEach, es que forEach es void, por lo tanto no retornará nada, en cambio, con map sí vamos a obtener
+un valor de regreso, así que no olvidemos colocar la palabra return.
